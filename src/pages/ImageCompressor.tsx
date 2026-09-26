@@ -28,7 +28,9 @@ export default function ImageCompressor() {
       const result = await compressImage(file);
       setCompressionResult(result);
     } catch (err) {
-      console.error("Compression failed:", err);
+      if (import.meta.env.DEV) {
+        console.error("Compression failed:", err);
+      }
       setError("Failed to compress the image. Please try a different file.");
     } finally {
       setIsCompressing(false);

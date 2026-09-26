@@ -31,9 +31,11 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
       if (typeof window !== "undefined") {
         try {
           window.localStorage.setItem(key, JSON.stringify(valueToStore));
-        } catch (e: any) {
-          if (e.name === 'QuotaExceededError') {
-             console.warn("LocalStorage QuotaExceededError. Not saving state.");
+        } catch (e) {
+          if (e instanceof Error && e.name === 'QuotaExceededError') {
+             if (import.meta.env.DEV) {
+               console.warn("LocalStorage QuotaExceededError. Not saving state.");
+             }
              // Potentially handle quota exceeded specifically
           } else {
              throw e;

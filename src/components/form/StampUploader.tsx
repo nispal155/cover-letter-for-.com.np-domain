@@ -57,7 +57,7 @@ export function StampUploader() {
       <h2 className="text-xl font-bold text-navy-900 mb-6">Company Stamp (Optional)</h2>
       
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-        {stampUrl ? (
+        {stampUrl && stampUrl.startsWith('data:image/') ? (
           <div className="relative group">
             <div className="w-32 h-32 rounded-lg border border-gray-200 bg-gray-50 flex items-center justify-center p-2 overflow-hidden">
               <img src={stampUrl} alt="Company Stamp" className="max-w-full max-h-full object-contain" />

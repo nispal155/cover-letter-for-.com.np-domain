@@ -17,6 +17,7 @@ export function CompanyDetails() {
           label="Company Name"
           placeholder="e.g. Astra Technology Horizon Pvt. Ltd."
           required
+          maxLength={200}
           {...register("companyName")}
           error={errors.companyName?.message}
         />
@@ -26,6 +27,7 @@ export function CompanyDetails() {
           placeholder="e.g. Itahari-4, Sunsari, Nepal"
           required
           rows={3}
+          maxLength={300}
           {...register("companyAddress")}
           error={errors.companyAddress?.message}
         />
@@ -33,6 +35,7 @@ export function CompanyDetails() {
         <FormField
           label="Company Tagline (Optional)"
           placeholder="e.g. Innovating the Future"
+          maxLength={100}
           {...register("companyTagline")}
           error={errors.companyTagline?.message}
         />

@@ -16,6 +16,7 @@ export function ContactDetails() {
           label="Email"
           type="email"
           placeholder="e.g. contact@astratech.com.np"
+          maxLength={254}
           {...register("email")}
           error={errors.email?.message}
         />
@@ -23,6 +24,7 @@ export function ContactDetails() {
         <FormField
           label="Phone Number"
           placeholder="e.g. +977-1-4XXXXXX"
+          maxLength={20}
           {...register("phone")}
           error={errors.phone?.message}
         />

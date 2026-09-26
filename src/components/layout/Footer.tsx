@@ -34,14 +34,11 @@ export function Footer() {
           
           <div className="lg:col-span-7 grid grid-cols-2 gap-8 lg:justify-items-end">
             
-            <div className="space-y-5 lg:justify-self-end">
+            <nav className="space-y-5 lg:justify-self-end" aria-label="Quick Links">
               <h4 className="text-xs font-bold text-white uppercase tracking-widest">Quick Links</h4>
               <ul className="space-y-3.5">
                 <li>
                   <Link to="/" className="text-sm text-slate-400 hover:text-white transition-colors">Home</Link>
-                </li>
-                <li>
-                  <a href="/#how-it-works" className="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a>
                 </li>
                 <li>
                   <Link to="/compress" className="text-sm text-slate-400 hover:text-white transition-colors">Image Compressor</Link>
@@ -50,9 +47,9 @@ export function Footer() {
                   <Link to="/generate" className="text-sm text-slate-400 hover:text-white transition-colors">Create Letter</Link>
                 </li>
               </ul>
-            </div>
+            </nav>
 
-            <div className="space-y-5">
+            <nav className="space-y-5" aria-label="Resources">
               <h4 className="text-xs font-bold text-white uppercase tracking-widest">Resources</h4>
               <ul className="space-y-3.5">
                 <li>
@@ -76,15 +73,22 @@ export function Footer() {
                   </a>
                 </li>
               </ul>
-            </div>
+            </nav>
           </div>
           
         </div>
         
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-slate-500 font-medium">
-            &copy; {new Date().getFullYear()} Astra Technology Horizon. All rights reserved.
-          </p>
+          <div className="flex items-center gap-4 flex-col sm:flex-row">
+            <p className="text-xs text-slate-500 font-medium">
+              &copy; {new Date().getFullYear()} Astra Technology Horizon. All rights reserved.
+            </p>
+            <div className="hidden sm:block w-[1px] h-3 bg-slate-700"></div>
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-teal-500/10 border border-teal-500/20 text-teal-400 text-[10px] font-bold uppercase tracking-wider">
+              <Icon icon="solar:shield-check-bold" className="w-3.5 h-3.5" />
+              100% Local Data Privacy
+            </div>
+          </div>
           <p className="text-xs text-slate-500 max-w-md text-center md:text-right">
             Disclaimer: This is an independent utility. Not affiliated with Mercantile Communications Pvt. Ltd.
           </p>

@@ -19,6 +19,7 @@ export function ApplicantDetails() {
           label="Full Name"
           placeholder="e.g. Nispal Bhattarai"
           required
+          maxLength={100}
           {...register("applicantName")}
           error={errors.applicantName?.message}
         />
@@ -28,6 +29,7 @@ export function ApplicantDetails() {
             label="Designation"
             placeholder="e.g. CEO"
             required
+            maxLength={100}
             {...register("designation")}
             error={errors.designation?.message}
           />

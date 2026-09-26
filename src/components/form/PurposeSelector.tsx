@@ -31,6 +31,7 @@ export function PurposeSelector() {
               label="Enter custom purpose"
               placeholder="e.g. host our internal inventory management system"
               required
+              maxLength={300}
               {...register("customPurpose")}
               error={errors.customPurpose?.message}
             />

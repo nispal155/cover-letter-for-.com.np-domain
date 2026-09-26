@@ -3,27 +3,28 @@ import { z } from "zod";
 export const domainLetterSchema = z.object({
   registrationType: z.enum(["personal", "company"]),
 
-  companyName: z.string().optional(),
-  companyAddress: z.string().optional(),
-  companyTagline: z.string().optional(),
+  companyName: z.string().max(200, "Maximum 200 characters").optional(),
+  companyAddress: z.string().max(300, "Maximum 300 characters").optional(),
+  companyTagline: z.string().max(100, "Maximum 100 characters").optional(),
 
   domainName: z
     .string()
     .min(1, "Domain name is required")
+    .max(63, "Maximum 63 characters")
     .regex(
       /^[a-z0-9]([a-z0-9-]*[a-z0-9])?$/i,
       "Please enter a valid domain name (letters, numbers, hyphens only; cannot start/end with hyphen)"
     ),
-  domainExtension: z.string().min(1),
+  domainExtension: z.string().min(1).max(20),
 
-  applicantName: z.string().min(1, "Applicant name is required"),
-  designation: z.string().optional(),
+  applicantName: z.string().min(1, "Applicant name is required").max(100, "Maximum 100 characters"),
+  designation: z.string().max(100, "Maximum 100 characters").optional(),
 
-  email: z.string().email("Please enter a valid email").optional().or(z.literal("")),
-  phone: z.string().optional(),
+  email: z.string().email("Please enter a valid email").max(254, "Maximum 254 characters").optional().or(z.literal("")),
+  phone: z.string().max(20, "Maximum 20 characters").optional(),
 
-  purpose: z.string().min(1, "Please select a domain purpose"),
-  customPurpose: z.string().optional(),
+  purpose: z.string().min(1, "Please select a domain purpose").max(50),
+  customPurpose: z.string().max(300, "Maximum 300 characters").optional(),
 
   logo: z.string().optional(),
   stamp: z.string().optional(),

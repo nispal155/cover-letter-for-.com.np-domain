@@ -57,7 +57,7 @@ export function LetterPreview({ formData }: LetterPreviewProps) {
               </div>
             ) : (
               <div className="text-center mb-8">
-                {data.letterhead.logo && (
+                {data.letterhead.logo && data.letterhead.logo.startsWith('data:image/') && (
                   <img 
                     src={data.letterhead.logo} 
                     alt="Company Logo" 
@@ -109,7 +109,7 @@ export function LetterPreview({ formData }: LetterPreviewProps) {
 
             {/* Closing */}
             <div className="mt-auto pt-10 relative">
-              {data.stamp && !data.isPersonal && (
+              {data.stamp && !data.isPersonal && data.stamp.startsWith('data:image/') && (
                 <div className="absolute top-10 left-32 opacity-80 pointer-events-none">
                   <img src={data.stamp} alt="Company Stamp" className="w-32 h-32 object-contain mix-blend-multiply" />
                 </div>

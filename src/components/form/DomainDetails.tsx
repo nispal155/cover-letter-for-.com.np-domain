@@ -25,6 +25,7 @@ export function DomainDetails() {
               label="Domain Name"
               placeholder="e.g. astratech"
               required
+              maxLength={63}
               {...register("domainName")}
               error={errors.domainName?.message}
             />

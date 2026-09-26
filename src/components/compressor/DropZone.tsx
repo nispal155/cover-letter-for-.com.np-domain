@@ -8,6 +8,7 @@ interface DropZoneProps {
 
 export function DropZone({ onFileSelect, disabled = false }: DropZoneProps) {
   const [isDragging, setIsDragging] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleDrag = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -39,15 +40,17 @@ export function DropZone({ onFileSelect, disabled = false }: DropZoneProps) {
     
     if (e.target.files && e.target.files[0]) {
       validateAndPassFile(e.target.files[0]);
+      e.target.value = ""; // Reset input
     }
   };
 
   const validateAndPassFile = (file: File) => {
     const validTypes = ["image/jpeg", "image/png", "image/webp"];
     if (validTypes.includes(file.type)) {
+      setError(null);
       onFileSelect(file);
     } else {
-      alert("Please upload a valid image file (JPG, PNG, or WebP).");
+      setError("Please upload a valid image file (JPG, PNG, or WebP).");
     }
   };
 
@@ -90,6 +93,13 @@ export function DropZone({ onFileSelect, disabled = false }: DropZoneProps) {
         <span className="bg-white px-3 py-1 rounded-full border border-gray-200">PNG</span>
         <span className="bg-white px-3 py-1 rounded-full border border-gray-200">WEBP</span>
       </div>
+      {error && (
+        <div className="absolute bottom-4 inset-x-0 mx-auto px-4 w-fit">
+          <div className="bg-red-50 text-red-600 text-sm py-1.5 px-3 rounded-md border border-red-200 shadow-sm animate-in slide-in-from-bottom-2 duration-300">
+            {error}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

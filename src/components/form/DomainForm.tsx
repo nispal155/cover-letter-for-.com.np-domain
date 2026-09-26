@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { domainLetterSchema } from "../../schemas/domainLetterSchema";
 import type { DomainLetterFormData } from "../../types";
 import { useLocalStorage, STORAGE_KEY } from "../../hooks/useLocalStorage";
+import { safeParseFormData } from "../../utils/safeParseFormData";
 
 import { CompanyDetails } from "./CompanyDetails";
 import { DomainDetails } from "./DomainDetails";
@@ -44,7 +45,7 @@ export function DomainForm({ onFormChange, onValidationChange, externalResetFlag
 
   const methods = useForm<DomainLetterFormData>({
     resolver: zodResolver(domainLetterSchema),
-    defaultValues: storedData,
+    defaultValues: safeParseFormData(storedData, defaultValues),
     mode: "onChange",
   });
 
@@ -61,14 +62,24 @@ export function DomainForm({ onFormChange, onValidationChange, externalResetFlag
 
   // Watch for form changes to update parent and local storage
   useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout>;
     const subscription = watch((value) => {
       // Create a valid data object to pass up
       const data = value as DomainLetterFormData;
       onFormChange(data);
-      // Save to local storage (debounced via the hook/effect nature)
-      setStoredData(data);
+      
+      // Debounce saving to local storage
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        // Exclude logo/stamp from localStorage to prevent quota issues
+        const { logo, stamp, ...textData } = data;
+        setStoredData(textData as DomainLetterFormData);
+      }, 500);
     });
-    return () => subscription.unsubscribe();
+    return () => {
+      subscription.unsubscribe();
+      clearTimeout(timeoutId);
+    };
   }, [watch, onFormChange, setStoredData]);
 
   // Inform parent of validation status

@@ -5,6 +5,7 @@ import { DomainForm } from "../components/form/DomainForm";
 import { LetterPreview } from "../components/preview/LetterPreview";
 import { PreviewControls } from "../components/preview/PreviewControls";
 import { SuccessModal } from "../components/ui/SuccessModal";
+import { ConfirmModal } from "../components/ui/ConfirmModal";
 
 import type { DomainLetterFormData } from "../types";
 
@@ -13,6 +14,8 @@ export default function Generator() {
   const [isValid, setIsValid] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showResetConfirm, setShowResetConfirm] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [externalResetFlag, setExternalResetFlag] = useState(0);
 
   const handleFormChange = useCallback((data: DomainLetterFormData) => {
@@ -24,9 +27,11 @@ export default function Generator() {
   }, []);
 
   const handleReset = () => {
-    if (window.confirm("Are you sure you want to reset the form? All data will be lost.")) {
-      setExternalResetFlag((prev) => prev + 1);
-    }
+    setShowResetConfirm(true);
+  };
+  
+  const confirmReset = () => {
+    setExternalResetFlag((prev) => prev + 1);
   };
 
   const handleEdit = () => {
@@ -79,8 +84,11 @@ export default function Generator() {
       
       setShowSuccessModal(true);
     } catch (error) {
-      console.error("Failed to generate Image:", error);
-      alert("Failed to generate Image. Please try again.");
+      if (import.meta.env.DEV) {
+        console.error("Failed to generate Image:", error);
+      }
+      setError("Failed to generate Image. Please try again.");
+      setTimeout(() => setError(null), 5000);
     } finally {
       setIsGenerating(false);
     }
@@ -134,6 +142,24 @@ export default function Generator() {
         onDownload={generateAndDownloadImage}
         onCreateAnother={handleReset}
       />
+      
+      <ConfirmModal
+        isOpen={showResetConfirm}
+        title="Reset Form"
+        message="Are you sure you want to reset the form? All your entered data will be lost."
+        onConfirm={confirmReset}
+        onCancel={() => setShowResetConfirm(false)}
+        confirmText="Reset"
+      />
+      
+      {error && (
+        <div className="fixed bottom-4 right-4 z-50 animate-in slide-in-from-bottom-2 duration-300">
+          <div className="bg-red-50 text-red-600 px-4 py-3 rounded-lg border border-red-200 shadow-lg flex items-center gap-3">
+            <Icon icon="solar:danger-circle-bold-duotone" className="w-5 h-5" />
+            <span className="text-sm font-medium">{error}</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
