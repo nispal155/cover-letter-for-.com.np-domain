@@ -1,6 +1,7 @@
 import { HeroSection } from "../components/home/HeroSection";
 import { DisclaimerSection } from "../components/home/DisclaimerSection";
 import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 import { Reveal } from "../components/ui/Reveal";
 
 export default function Home() {
@@ -119,9 +120,9 @@ export default function Home() {
               Our free browser-native image compressor instantly resizes your document scans to under 200KB for .NP domain registration. No server uploads, 100% private.
             </p>
               <div className="pt-4">
-                <a href="/compress" className="inline-block bg-white dark:bg-gray-900 text-teal-600 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-gray-800 font-bold px-8 py-4 rounded-xl transition-colors shadow-sm">
+                <Link to="/compress" className="inline-block bg-white dark:bg-gray-900 text-teal-600 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-gray-800 font-bold px-8 py-4 rounded-xl transition-colors shadow-sm">
                   Open Image Compressor
-                </a>
+                </Link>
               </div>
             </div>
           </div>
