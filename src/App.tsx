@@ -4,6 +4,7 @@ import { Header } from "./components/layout/Header";
 import { Footer } from "./components/layout/Footer";
 import Home from "./pages/Home";
 import Generator from "./pages/Generator";
+import ImageCompressor from "./pages/ImageCompressor";
 
 function ScrollProgress() {
   const [progress, setProgress] = useState(0);
@@ -48,6 +49,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/generate" element={<Generator />} />
+            <Route path="/compress" element={<ImageCompressor />} />
           </Routes>
         </main>
         <Footer />

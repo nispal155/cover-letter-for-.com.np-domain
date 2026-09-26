@@ -44,6 +44,9 @@ export function Header() {
             <a href="/#guidelines" className="font-medium text-navy-600 hover:text-navy-900 transition-colors">
               Guidelines
             </a>
+            <Link to="/compress" className={linkClass("/compress")}>
+              Image Compressor
+            </Link>
             <Link
               to="/generate"
               className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
@@ -98,6 +101,17 @@ export function Header() {
             >
               Guidelines
             </a>
+            <Link
+              to="/compress"
+              className={`block px-3 py-2 rounded-md text-base ${
+                isActive("/compress")
+                  ? "text-blue-600 bg-blue-50"
+                  : "text-navy-700 hover:text-navy-900 hover:bg-gray-50"
+              }`}
+              onClick={closeMenu}
+            >
+              Image Compressor
+            </Link>
             <Link
               to="/generate"
               className="block px-3 py-2 text-base font-medium text-blue-600 hover:text-blue-700"

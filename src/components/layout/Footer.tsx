@@ -44,6 +44,9 @@ export function Footer() {
                   <a href="/#how-it-works" className="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a>
                 </li>
                 <li>
+                  <Link to="/compress" className="text-sm text-slate-400 hover:text-white transition-colors">Image Compressor</Link>
+                </li>
+                <li>
                   <Link to="/generate" className="text-sm text-slate-400 hover:text-white transition-colors">Create Letter</Link>
                 </li>
               </ul>

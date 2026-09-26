@@ -98,6 +98,28 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Compressor Promo Section */}
+      <div className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl p-8 sm:p-12 text-center text-white shadow-xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-black opacity-10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+          
+          <div className="relative z-10 space-y-6">
+            <h2 className="text-3xl font-extrabold tracking-tight">
+              Need to compress your citizenship or PAN card?
+            </h2>
+            <p className="text-blue-100 text-lg max-w-2xl mx-auto">
+              Our free browser-native image compressor instantly resizes your document scans to under 200KB for .NP domain registration. No server uploads, 100% private.
+            </p>
+            <div className="pt-4">
+              <a href="/compress" className="inline-block bg-white text-blue-600 hover:bg-blue-50 font-bold px-8 py-4 rounded-xl transition-colors shadow-sm">
+                Open Image Compressor
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <DisclaimerSection />
     </div>
   );
