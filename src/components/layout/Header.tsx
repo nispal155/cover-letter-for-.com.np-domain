@@ -2,18 +2,22 @@ import { Link, useLocation } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import { ThemeToggle } from "../ui/ThemeToggle";
+import { useScrollSpy } from "../../hooks/useScrollSpy";
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const activeId = useScrollSpy(['hero', 'guidelines'], 100);
 
   const closeMenu = () => setIsMobileMenuOpen(false);
 
-  const isActive = (path: string) => location.pathname === path;
+  const isHomeActive = location.pathname === '/' && (!activeId || activeId === 'hero');
+  const isGuidelinesActive = location.pathname === '/' && activeId === 'guidelines';
+  const isCompressorActive = location.pathname === '/compress';
 
-  const linkClass = (path: string) =>
+  const navItemClass = (isActive: boolean) =>
     `font-medium transition-colors ${
-      isActive(path) ? "text-teal-600 dark:text-teal-400" : "text-navy-600 hover:text-navy-900 dark:text-slate-400 dark:hover:text-white"
+      isActive ? "text-teal-600 dark:text-teal-400" : "text-navy-600 hover:text-navy-900 dark:text-slate-400 dark:hover:text-white"
     }`;
 
   return (
@@ -36,16 +40,13 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8 items-center">
-            <Link to="/" className={linkClass("/")}>
+            <Link to="/" className={navItemClass(isHomeActive)}>
               Home
             </Link>
-            <a href="/#how-it-works" className="font-medium text-navy-600 hover:text-navy-900 dark:text-slate-400 dark:hover:text-white transition-colors">
-              How It Works
-            </a>
-            <a href="/#guidelines" className="font-medium text-navy-600 hover:text-navy-900 dark:text-slate-400 dark:hover:text-white transition-colors">
+            <a href="/#guidelines" className={navItemClass(isGuidelinesActive)}>
               Guidelines
             </a>
-            <Link to="/compress" className={linkClass("/compress")}>
+            <Link to="/compress" className={navItemClass(isCompressorActive)}>
               Image Compressor
             </Link>
             <ThemeToggle />
@@ -82,7 +83,7 @@ export function Header() {
             <Link
               to="/"
               className={`block px-3 py-2 rounded-md text-base ${
-                isActive("/")
+                isHomeActive
                   ? "text-teal-600 bg-teal-50 dark:bg-teal-900/20 dark:text-teal-400"
                   : "text-navy-700 hover:text-navy-900 hover:bg-gray-50 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800"
               }`}
@@ -91,15 +92,12 @@ export function Header() {
               Home
             </Link>
             <a
-              href="/#how-it-works"
-              className="block px-3 py-2 rounded-md text-base text-navy-700 hover:text-navy-900 hover:bg-gray-50 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800"
-              onClick={closeMenu}
-            >
-              How It Works
-            </a>
-            <a
               href="/#guidelines"
-              className="block px-3 py-2 rounded-md text-base text-navy-700 hover:text-navy-900 hover:bg-gray-50 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800"
+              className={`block px-3 py-2 rounded-md text-base ${
+                isGuidelinesActive
+                  ? "text-teal-600 bg-teal-50 dark:bg-teal-900/20 dark:text-teal-400"
+                  : "text-navy-700 hover:text-navy-900 hover:bg-gray-50 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800"
+              }`}
               onClick={closeMenu}
             >
               Guidelines
@@ -107,7 +105,7 @@ export function Header() {
             <Link
               to="/compress"
               className={`block px-3 py-2 rounded-md text-base ${
-                isActive("/compress")
+                isCompressorActive
                   ? "text-teal-600 bg-teal-50 dark:bg-teal-900/20 dark:text-teal-400"
                   : "text-navy-700 hover:text-navy-900 hover:bg-gray-50 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800"
               }`}

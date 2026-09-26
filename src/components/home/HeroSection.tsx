@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function HeroSection() {
   return (
-    <section className="bg-white dark:bg-gray-900 py-16 sm:py-24 transition-colors">
+    <section id="hero" className="bg-white dark:bg-gray-900 py-16 sm:py-24 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
         <Reveal>
           <div className="inline-flex items-center justify-center p-3 bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 rounded-2xl mb-4">
