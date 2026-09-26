@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { UploadCloud, FileImage } from "lucide-react";
+import { Icon } from "@iconify/react";
 
 interface DropZoneProps {
   onFileSelect: (file: File) => void;
@@ -55,7 +55,7 @@ export function DropZone({ onFileSelect, disabled = false }: DropZoneProps) {
     <div
       className={`relative w-full rounded-2xl border-2 border-dashed p-10 sm:p-16 transition-all flex flex-col items-center justify-center text-center
         ${isDragging 
-          ? "border-blue-500 bg-blue-50" 
+          ? "border-teal-500 bg-teal-50" 
           : "border-gray-300 bg-gray-50 hover:bg-gray-100 hover:border-gray-400"
         }
         ${disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : "cursor-pointer"}
@@ -74,16 +74,16 @@ export function DropZone({ onFileSelect, disabled = false }: DropZoneProps) {
       />
       <div className="bg-white p-4 rounded-full shadow-sm mb-4">
         {isDragging ? (
-          <FileImage className="w-8 h-8 text-blue-600 animate-pulse" />
+          <Icon icon="solar:gallery-bold-duotone" className="w-8 h-8 text-teal-600 animate-pulse" />
         ) : (
-          <UploadCloud className="w-8 h-8 text-blue-600" />
+          <Icon icon="solar:cloud-upload-bold-duotone" className="w-8 h-8 text-teal-600" />
         )}
       </div>
       <h3 className="text-xl font-bold text-navy-900 mb-2">
         Drag & drop your image here
       </h3>
       <p className="text-navy-600 text-sm">
-        or <span className="text-blue-600 font-medium">click to browse</span> from your device
+        or <span className="text-teal-600 font-medium">click to browse</span> from your device
       </p>
       <div className="mt-6 flex items-center justify-center gap-4 text-xs font-medium text-navy-500">
         <span className="bg-white px-3 py-1 rounded-full border border-gray-200">JPG</span>

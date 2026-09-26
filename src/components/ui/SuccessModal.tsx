@@ -1,4 +1,4 @@
-import { CheckCircle2, X } from "lucide-react";
+import { Icon } from "@iconify/react";
 
 interface SuccessModalProps {
   isOpen: boolean;
@@ -17,12 +17,12 @@ export function SuccessModal({ isOpen, onClose, onDownload, onCreateAnother }: S
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
         >
-          <X className="w-5 h-5" />
+          <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
         </button>
         
         <div className="flex flex-col items-center text-center">
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-            <CheckCircle2 className="w-8 h-8 text-green-600" />
+            <Icon icon="solar:check-circle-bold-duotone" className="w-8 h-8 text-green-600" />
           </div>
           
           <h2 className="text-2xl font-bold text-navy-900 mb-2">Your letter is ready!</h2>
@@ -36,7 +36,7 @@ export function SuccessModal({ isOpen, onClose, onDownload, onCreateAnother }: S
                 onDownload();
                 onClose();
               }}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+              className="w-full bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
             >
               Download Image Again
             </button>

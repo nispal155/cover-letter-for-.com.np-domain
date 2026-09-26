@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { FileText, Menu, X } from "lucide-react";
+import { Icon } from "@iconify/react";
 import { useState } from "react";
 
 export function Header() {
@@ -12,7 +12,7 @@ export function Header() {
 
   const linkClass = (path: string) =>
     `font-medium transition-colors ${
-      isActive(path) ? "text-blue-600" : "text-navy-600 hover:text-navy-900"
+      isActive(path) ? "text-teal-600" : "text-navy-600 hover:text-navy-900"
     }`;
 
   return (
@@ -21,8 +21,8 @@ export function Header() {
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center gap-2 group">
-              <div className="bg-blue-600 text-white p-2 rounded-lg group-hover:bg-blue-700 transition-colors">
-                <FileText className="w-5 h-5" />
+              <div className="bg-teal-600 text-white p-2 rounded-lg group-hover:bg-teal-700 transition-colors">
+                <Icon icon="solar:document-bold-duotone" className="w-5 h-5" />
               </div>
               <span className="font-bold text-lg text-navy-900 hidden sm:block">
                 NP Domain Letter Generator
@@ -49,7 +49,7 @@ export function Header() {
             </Link>
             <Link
               to="/generate"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
+              className="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
             >
               Create Letter
             </Link>
@@ -63,9 +63,9 @@ export function Header() {
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
-                <X className="h-6 w-6" />
+                <Icon icon="solar:close-circle-linear" className="h-6 w-6" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Icon icon="solar:hamburger-menu-linear" className="h-6 w-6" />
               )}
             </button>
           </div>
@@ -80,7 +80,7 @@ export function Header() {
               to="/"
               className={`block px-3 py-2 rounded-md text-base ${
                 isActive("/")
-                  ? "text-blue-600 bg-blue-50"
+                  ? "text-teal-600 bg-teal-50"
                   : "text-navy-700 hover:text-navy-900 hover:bg-gray-50"
               }`}
               onClick={closeMenu}
@@ -105,7 +105,7 @@ export function Header() {
               to="/compress"
               className={`block px-3 py-2 rounded-md text-base ${
                 isActive("/compress")
-                  ? "text-blue-600 bg-blue-50"
+                  ? "text-teal-600 bg-teal-50"
                   : "text-navy-700 hover:text-navy-900 hover:bg-gray-50"
               }`}
               onClick={closeMenu}
@@ -114,7 +114,7 @@ export function Header() {
             </Link>
             <Link
               to="/generate"
-              className="block px-3 py-2 text-base font-medium text-blue-600 hover:text-blue-700"
+              className="block px-3 py-2 text-base font-medium text-teal-600 hover:text-teal-700"
               onClick={closeMenu}
             >
               Create Letter

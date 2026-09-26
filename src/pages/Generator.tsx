@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { Shield } from "lucide-react";
+import { Icon } from "@iconify/react";
 
 import { DomainForm } from "../components/form/DomainForm";
 import { LetterPreview } from "../components/preview/LetterPreview";
@@ -93,8 +93,8 @@ export default function Generator() {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           {/* Left Column: Form */}
           <div className="w-full lg:w-1/2 flex flex-col gap-6">
-            <div className="bg-blue-50 text-blue-800 p-4 rounded-xl flex items-center gap-3 border border-blue-100">
-              <Shield className="w-5 h-5 flex-shrink-0 text-blue-600" />
+            <div className="bg-teal-50 text-teal-800 p-4 rounded-xl flex items-center gap-3 border border-teal-100">
+              <Icon icon="solar:shield-check-bold-duotone" className="w-5 h-5 flex-shrink-0 text-teal-600" />
               <p className="text-sm font-medium">
                 Your information stays in your browser. We don't save your data to any server.
               </p>

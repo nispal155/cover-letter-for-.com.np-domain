@@ -94,7 +94,7 @@ export function DomainForm({ onFormChange, onValidationChange, externalResetFlag
               <input 
                 type="radio" 
                 value="company" 
-                className="w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                className="w-4 h-4 text-teal-600 focus:ring-teal-500 border-gray-300"
                 {...methods.register("registrationType")}
               />
               <span className="text-sm font-medium text-gray-700">Company / Organization</span>
@@ -103,7 +103,7 @@ export function DomainForm({ onFormChange, onValidationChange, externalResetFlag
               <input 
                 type="radio" 
                 value="personal" 
-                className="w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                className="w-4 h-4 text-teal-600 focus:ring-teal-500 border-gray-300"
                 {...methods.register("registrationType")}
               />
               <span className="text-sm font-medium text-gray-700">Personal Use</span>

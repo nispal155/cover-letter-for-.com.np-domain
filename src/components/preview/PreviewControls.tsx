@@ -1,4 +1,4 @@
-import { Download, RotateCcw, Edit2 } from "lucide-react";
+import { Icon } from "@iconify/react";
 
 interface PreviewControlsProps {
   onReset: () => void;
@@ -22,14 +22,14 @@ export function PreviewControls({
           onClick={onEdit}
           className="lg:hidden inline-flex items-center gap-2 text-sm font-medium text-navy-600 hover:text-navy-900 bg-white border border-gray-200 px-4 py-2 rounded-lg shadow-sm"
         >
-          <Edit2 className="w-4 h-4" />
+          <Icon icon="solar:pen-2-linear" className="w-4 h-4" />
           Edit Details
         </button>
         <button
           onClick={onReset}
           className="inline-flex items-center gap-2 text-sm font-medium text-red-600 hover:text-red-700 bg-white border border-gray-200 px-4 py-2 rounded-lg shadow-sm"
         >
-          <RotateCcw className="w-4 h-4" />
+          <Icon icon="solar:restart-bold" className="w-4 h-4" />
           Reset Form
         </button>
       </div>
@@ -40,10 +40,10 @@ export function PreviewControls({
         className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-medium shadow-sm transition-all ${
           !isValid || isGenerating
             ? "bg-gray-200 text-gray-500 cursor-not-allowed"
-            : "bg-blue-600 hover:bg-blue-700 text-white"
+            : "bg-teal-600 hover:bg-teal-700 text-white"
         }`}
       >
-        <Download className="w-4 h-4" />
+        <Icon icon="solar:download-minimalistic-bold-duotone" className="w-4 h-4" />
         {isGenerating ? "Generating..." : "Download Image"}
       </button>
     </div>

@@ -1,16 +1,16 @@
-import { ExternalLink, Globe, BookOpen } from "lucide-react";
+import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 
 export function Footer() {
   return (
-    <footer className="bg-[#0A0F1C] border-t border-[#1a2333] mt-auto selection:bg-blue-500/30">
+    <footer className="bg-[#0A0F1C] border-t border-[#1a2333] mt-auto selection:bg-teal-500/30">
       <div className="max-w-7xl mx-auto pt-16 pb-8 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 border-b border-[#1a2333] pb-12">
           
           <div className="lg:col-span-5 space-y-6">
             <div>
               <h3 className="text-xl font-semibold text-white tracking-tight flex items-center gap-2">
-                <Globe className="w-5 h-5 text-blue-400" />
+                <Icon icon="solar:global-bold-duotone" className="w-5 h-5 text-teal-400" />
                 NP Domain Generator
               </h3>
               <p className="mt-4 text-sm text-slate-400 leading-relaxed max-w-sm">
@@ -25,7 +25,7 @@ export function Footer() {
                 href="https://astratech.com.np" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-xs font-bold text-white hover:text-blue-400 transition-colors tracking-widest"
+                className="text-xs font-bold text-white hover:text-teal-400 transition-colors tracking-widest"
               >
                 ASTRA TECHNOLOGY HORIZON
               </a>
@@ -63,7 +63,7 @@ export function Footer() {
                     className="group inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors"
                   >
                     Official .NP Registry
-                    <ExternalLink className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 transition-opacity" />
+                    <Icon icon="solar:square-top-down-linear" className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 transition-opacity" />
                   </a>
                 </li>
                 <li>
@@ -72,7 +72,7 @@ export function Footer() {
                     className="group inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors"
                   >
                     Registration Guidelines
-                    <BookOpen className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 transition-opacity" />
+                    <Icon icon="solar:book-2-bold-duotone" className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 transition-opacity" />
                   </a>
                 </li>
               </ul>

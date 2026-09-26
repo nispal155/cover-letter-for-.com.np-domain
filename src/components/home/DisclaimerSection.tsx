@@ -1,11 +1,11 @@
-import { Info } from "lucide-react";
+import { Icon } from "@iconify/react";
 
 export function DisclaimerSection() {
   return (
     <section className="py-12 bg-white border-t border-gray-100">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="inline-flex items-center justify-center p-2 bg-gray-50 rounded-full mb-4 border border-gray-200">
-          <Info className="w-5 h-5 text-navy-500" />
+          <Icon icon="solar:info-circle-bold-duotone" className="w-5 h-5 text-navy-500" />
         </div>
         <p className="text-navy-600 text-sm sm:text-base leading-relaxed">
           <strong className="text-navy-900">Disclaimer:</strong> This tool generates a request letter. Domain registration and approval are handled by the official .NP Domain Registry.

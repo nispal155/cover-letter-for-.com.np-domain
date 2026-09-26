@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import type { ChangeEvent } from "react";
 import { useFormContext } from "react-hook-form";
-import { Upload, X, Image as ImageIcon } from "lucide-react";
+import { Icon } from "@iconify/react";
 import type { DomainLetterFormData } from "../../types";
 
 export function LogoUploader() {
@@ -68,12 +68,12 @@ export function LogoUploader() {
               className="absolute -top-2 -right-2 bg-red-100 text-red-600 p-1.5 rounded-full hover:bg-red-200 transition-colors shadow-sm"
               aria-label="Remove logo"
             >
-              <X className="w-4 h-4" />
+              <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
             </button>
           </div>
         ) : (
           <div className="w-32 h-32 rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 flex flex-col items-center justify-center text-gray-400">
-            <ImageIcon className="w-8 h-8 mb-2" />
+            <Icon icon="solar:gallery-minimalistic-bold-duotone" className="w-8 h-8 mb-2" />
             <span className="text-xs font-medium">No logo</span>
           </div>
         )}
@@ -91,7 +91,7 @@ export function LogoUploader() {
             htmlFor="logo-upload"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-300 bg-white text-navy-700 font-medium hover:bg-gray-50 cursor-pointer transition-colors shadow-sm"
           >
-            <Upload className="w-4 h-4" />
+            <Icon icon="solar:upload-minimalistic-bold" className="w-4 h-4" />
             {logoUrl ? "Change Logo" : "Upload Logo"}
           </label>
           <p className="mt-3 text-sm text-gray-500">

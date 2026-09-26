@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",
+    "@iconify/react": "^6.0.2",
     "html-to-image": "^1.11.13",
-    "lucide-react": "^1.48.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-hook-form": "^7.88.0",

@@ -1,4 +1,4 @@
-import { Download, RefreshCw, CheckCircle2, ArrowRight } from "lucide-react";
+import { Icon } from "@iconify/react";
 import type { CompressionResult } from "../../utils/imageCompressor";
 
 interface CompressedPreviewProps {
@@ -38,7 +38,7 @@ export function CompressedPreview({ originalFile, originalPreviewUrl, result, on
       
       {isAlreadySmall && (
         <div className="mb-6 bg-green-50 border border-green-200 text-green-800 p-4 rounded-xl flex items-start gap-3">
-          <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+          <Icon icon="solar:check-circle-bold-duotone" className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
           <div>
             <p className="font-semibold text-sm">Your image is already under 200KB!</p>
             <p className="text-sm mt-1 opacity-90">No aggressive compression was needed. We've converted it to a standardized JPG format for you.</p>
@@ -59,14 +59,14 @@ export function CompressedPreview({ originalFile, originalPreviewUrl, result, on
         </div>
 
         {/* Arrow (hidden on mobile) */}
-        <div className="hidden md:flex flex-shrink-0 items-center justify-center bg-blue-50 text-blue-600 rounded-full p-3">
-          <ArrowRight className="w-6 h-6" />
+        <div className="hidden md:flex flex-shrink-0 items-center justify-center bg-teal-50 text-teal-600 rounded-full p-3">
+          <Icon icon="solar:arrow-right-linear" className="w-6 h-6" />
         </div>
 
         {/* Compressed */}
         <div className="flex-1 w-full space-y-4 text-center">
-          <h4 className="font-bold text-blue-600">Compressed</h4>
-          <div className="relative aspect-[4/3] w-full max-w-sm mx-auto rounded-xl overflow-hidden bg-gray-100 border border-blue-200 shadow-[0_0_15px_rgba(37,99,235,0.1)]">
+          <h4 className="font-bold text-teal-600">Compressed</h4>
+          <div className="relative aspect-[4/3] w-full max-w-sm mx-auto rounded-xl overflow-hidden bg-gray-100 border border-teal-200 shadow-[0_0_15px_rgba(13,148,136,0.1)]">
             <img src={result.dataUrl} alt="Compressed" className="w-full h-full object-contain" />
           </div>
           <div className="inline-flex bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-bold border border-green-200">
@@ -97,16 +97,16 @@ export function CompressedPreview({ originalFile, originalPreviewUrl, result, on
       <div className="flex flex-col sm:flex-row gap-4">
         <button
           onClick={handleDownload}
-          className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-4 px-6 rounded-xl font-medium text-lg transition-colors flex items-center justify-center gap-2 shadow-sm"
+          className="flex-1 bg-teal-600 hover:bg-teal-700 text-white py-4 px-6 rounded-xl font-medium text-lg transition-colors flex items-center justify-center gap-2 shadow-sm"
         >
-          <Download className="w-5 h-5" />
+          <Icon icon="solar:download-minimalistic-bold-duotone" className="w-5 h-5" />
           Download Compressed Image
         </button>
         <button
           onClick={onReset}
           className="w-full sm:w-auto bg-white hover:bg-gray-50 text-navy-700 py-4 px-6 rounded-xl font-medium border border-gray-300 transition-colors flex items-center justify-center gap-2"
         >
-          <RefreshCw className="w-5 h-5" />
+          <Icon icon="solar:refresh-circle-bold-duotone" className="w-5 h-5" />
           Compress Another
         </button>
       </div>
