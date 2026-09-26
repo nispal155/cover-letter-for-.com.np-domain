@@ -1,4 +1,5 @@
 import React from "react";
+import { useActiveField } from "../../context/ActiveFieldContext";
 
 interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -7,23 +8,45 @@ interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const FormField = React.forwardRef<HTMLInputElement, FormFieldProps>(
-  ({ label, error, required, className = "", ...props }, ref) => {
+  ({ label, error, required, className = "", onFocus, onBlur, name, ...props }, ref) => {
+    // We use a try-catch or safe access since FormField might be used outside Generator
+    let setActiveField = (_val: string | null) => {};
+    try {
+      const context = useActiveField();
+      setActiveField = context.setActiveField;
+    } catch (e) {
+      // Ignore if outside provider
+    }
+
+    const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+      if (name) setActiveField(name);
+      onFocus?.(e);
+    };
+
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+      setActiveField(null);
+      onBlur?.(e);
+    };
+
     return (
       <div className={`w-full ${className}`}>
-        <label className="block text-sm font-medium text-navy-700 mb-1.5">
+        <label className="block text-sm font-medium text-navy-700 dark:text-gray-300 mb-1.5 transition-colors">
           {label} {required && <span className="text-red-500">*</span>}
         </label>
         <input
           ref={ref}
+          name={name}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           className={`w-full px-4 py-2.5 rounded-lg border ${
             error
-              ? "border-red-300 focus:ring-red-500 focus:border-red-500"
-              : "border-gray-300 focus:ring-teal-500 focus:border-teal-500"
-          } shadow-sm focus:outline-none focus:ring-2 transition-shadow bg-white text-navy-900 placeholder-gray-400`}
+              ? "border-red-300 focus:ring-red-500 focus:border-red-500 dark:border-red-500/50"
+              : "border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:border-gray-600 dark:focus:border-teal-500 dark:focus:ring-teal-500/50"
+          } shadow-sm focus:outline-none focus:ring-2 transition-shadow bg-white dark:bg-gray-800 text-navy-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500`}
           {...props}
         />
         {error && (
-          <p className="mt-1.5 text-sm text-red-500">{error}</p>
+          <p className="mt-1.5 text-sm text-red-500 dark:text-red-400">{error}</p>
         )}
       </div>
     );
@@ -31,3 +54,4 @@ export const FormField = React.forwardRef<HTMLInputElement, FormFieldProps>(
 );
 
 FormField.displayName = "FormField";
+
