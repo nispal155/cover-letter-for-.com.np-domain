@@ -3,11 +3,18 @@ import { DisclaimerSection } from "../components/home/DisclaimerSection";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 import { Reveal } from "../components/ui/Reveal";
+import { SEO } from "../components/SEO";
 
 export default function Home() {
   return (
-    <div>
-      <HeroSection />
+    <>
+      <SEO 
+        title="Free .NP Domain Cover Letter Generator & Image Compressor"
+        description="Generate perfectly formatted cover letters and compress citizenship/PAN images for .com.np domain registration in Nepal. Free, instant, and 100% private."
+        url="/"
+      />
+      <div>
+        <HeroSection />
 
       <div id="guidelines" className="bg-gray-50 dark:bg-[#0A0F1C] py-16 px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-gray-800 transition-colors">
         <div className="max-w-4xl mx-auto space-y-10">
@@ -130,6 +137,7 @@ export default function Home() {
       </div>
 
       <DisclaimerSection />
-    </div>
+      </div>
+    </>
   );
 }

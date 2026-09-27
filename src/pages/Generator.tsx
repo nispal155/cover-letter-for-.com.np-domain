@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { Icon } from "@iconify/react";
 import { ActiveFieldProvider } from "../context/ActiveFieldContext";
+import { SEO } from "../components/SEO";
 
 import { DomainForm } from "../components/form/DomainForm";
 import { LetterPreview } from "../components/preview/LetterPreview";
@@ -151,7 +152,13 @@ export default function Generator() {
   };
 
   return (
-    <ActiveFieldProvider>
+    <>
+      <SEO 
+        title="Cover Letter Generator for .NP Domains"
+        description="Fill out a simple form to instantly generate a properly formatted cover letter for your .com.np domain registration. Export to PDF or Image."
+        url="/generate"
+      />
+      <ActiveFieldProvider>
       <div className="bg-gray-50 min-h-screen pb-20 dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           
@@ -219,6 +226,7 @@ export default function Generator() {
           </div>
         )}
       </div>
-    </ActiveFieldProvider>
+      </ActiveFieldProvider>
+    </>
   );
 }

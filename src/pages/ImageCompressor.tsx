@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import { DropZone } from "../components/compressor/DropZone";
 import { CompressedPreview } from "../components/compressor/CompressedPreview";
 import { compressImage, type CompressionResult } from "../utils/imageCompressor";
+import { SEO } from "../components/SEO";
 
 export default function ImageCompressor() {
   const [originalFile, setOriginalFile] = useState<File | null>(null);
@@ -57,7 +58,13 @@ export default function ImageCompressor() {
   }, [originalPreviewUrl]);
 
   return (
-    <div className="bg-gray-50 min-h-screen pb-20">
+    <>
+      <SEO 
+        title="Image Compressor for .NP Domain Registration"
+        description="Compress citizenship, PAN card, and company registration images to under 200KB for .com.np domain registration. Free, fast, and secure."
+        url="/compress"
+      />
+      <div className="bg-gray-50 min-h-screen pb-20">
       
       {/* Header Section */}
       <div className="bg-white border-b border-gray-200">
@@ -118,6 +125,7 @@ export default function ImageCompressor() {
         </div>
 
       </div>
-    </div>
+      </div>
+    </>
   );
 }

@@ -32,7 +32,7 @@ export function Footer() {
             </div>
           </div>
           
-          <div className="lg:col-span-7 grid grid-cols-2 gap-8 lg:justify-items-end">
+          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 lg:justify-items-end">
             
             <nav className="space-y-5 lg:justify-self-end" aria-label="Quick Links">
               <h4 className="text-xs font-bold text-white uppercase tracking-widest">Quick Links</h4>
@@ -71,6 +71,27 @@ export function Footer() {
                     Registration Guidelines
                     <Icon icon="solar:book-2-bold-duotone" className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 transition-opacity" />
                   </a>
+                </li>
+              </ul>
+            </nav>
+
+            <nav className="space-y-5" aria-label="Legal & Info">
+              <h4 className="text-xs font-bold text-white uppercase tracking-widest">Legal & Info</h4>
+              <ul className="space-y-3.5">
+                <li>
+                  <Link to="/about" className="text-sm text-slate-400 hover:text-white transition-colors">About Us</Link>
+                </li>
+                <li>
+                  <Link to="/contact" className="text-sm text-slate-400 hover:text-white transition-colors">Contact</Link>
+                </li>
+                <li>
+                  <Link to="/faq" className="text-sm text-slate-400 hover:text-white transition-colors">FAQ</Link>
+                </li>
+                <li>
+                  <Link to="/privacy" className="text-sm text-slate-400 hover:text-white transition-colors">Privacy Policy</Link>
+                </li>
+                <li>
+                  <Link to="/terms" className="text-sm text-slate-400 hover:text-white transition-colors">Terms of Service</Link>
                 </li>
               </ul>
             </nav>

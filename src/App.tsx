@@ -6,7 +6,13 @@ import { Footer } from "./components/layout/Footer";
 import Home from "./pages/Home";
 import Generator from "./pages/Generator";
 import ImageCompressor from "./pages/ImageCompressor";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
+import { StructuredData } from "./components/StructuredData";
 
 function ScrollProgress() {
   const [progress, setProgress] = useState(0);
@@ -64,6 +70,11 @@ function AppRoutes() {
         <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
         <Route path="/generate" element={<PageWrapper><Generator /></PageWrapper>} />
         <Route path="/compress" element={<PageWrapper><ImageCompressor /></PageWrapper>} />
+        <Route path="/privacy" element={<PageWrapper><Privacy /></PageWrapper>} />
+        <Route path="/terms" element={<PageWrapper><Terms /></PageWrapper>} />
+        <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+        <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+        <Route path="/faq" element={<PageWrapper><FAQ /></PageWrapper>} />
         <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
       </Routes>
     </AnimatePresence>
@@ -73,6 +84,7 @@ function AppRoutes() {
 function App() {
   return (
     <Router>
+      <StructuredData />
       <ScrollProgress />
       <div className="min-h-screen flex flex-col font-sans dark:bg-gray-900 transition-colors">
         <Header />
