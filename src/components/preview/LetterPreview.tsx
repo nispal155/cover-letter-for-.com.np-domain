@@ -8,6 +8,17 @@ interface LetterPreviewProps {
   formData: DomainLetterFormData;
 }
 
+const Highlight = ({ field, children }: { field: string | string[], children: React.ReactNode }) => {
+  const { activeField } = useActiveField();
+  const fields = Array.isArray(field) ? field : [field];
+  const isActive = activeField && fields.includes(activeField);
+  return (
+    <span className={`transition-all duration-300 ${isActive ? 'bg-teal-200/50 shadow-[0_0_0_4px_rgba(153,246,228,0.5)] rounded-sm relative z-10 text-teal-900' : ''}`}>
+      {children}
+    </span>
+  );
+};
+
 export function LetterPreview({ formData }: LetterPreviewProps) {
   const data: LetterData = generateLetterData(formData);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -33,15 +44,7 @@ export function LetterPreview({ formData }: LetterPreviewProps) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const Highlight = ({ field, children }: { field: string | string[], children: React.ReactNode }) => {
-    const fields = Array.isArray(field) ? field : [field];
-    const isActive = activeField && fields.includes(activeField);
-    return (
-      <span className={`transition-all duration-300 ${isActive ? 'bg-teal-200/50 shadow-[0_0_0_4px_rgba(153,246,228,0.5)] rounded-sm relative z-10 text-teal-900' : ''}`}>
-        {children}
-      </span>
-    );
-  };
+
 
   const renderParagraph = (text: string, index: number) => {
     // Simple highlight for domain name in paragraphs

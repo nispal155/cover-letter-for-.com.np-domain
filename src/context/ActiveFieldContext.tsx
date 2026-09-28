@@ -20,7 +20,7 @@ export function ActiveFieldProvider({ children }: { children: ReactNode }) {
 export function useActiveField() {
   const context = useContext(ActiveFieldContext);
   if (context === undefined) {
-    throw new Error("useActiveField must be used within an ActiveFieldProvider");
+    return { activeField: null, setActiveField: () => {} };
   }
   return context;
 }

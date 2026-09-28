@@ -108,10 +108,10 @@ export function DomainForm({ onFormChange, onValidationChange, externalResetFlag
     if (storedData.companyName || storedData.applicantName) {
       methods.trigger();
     }
-  }, []);
+  }, [methods, onFormChange, storedData.companyName, storedData.applicantName]);
 
   const handleNext = async () => {
-    let fieldsToValidate: any[] = [];
+    let fieldsToValidate: (keyof DomainLetterFormData)[] = [];
     if (currentStep === 1) {
       fieldsToValidate = ["registrationType", "domainName", "domainExtension"];
       if (registrationType === "company") {

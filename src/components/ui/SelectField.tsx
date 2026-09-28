@@ -10,13 +10,8 @@ interface SelectFieldProps extends React.SelectHTMLAttributes<HTMLSelectElement>
 
 export const SelectField = React.forwardRef<HTMLSelectElement, SelectFieldProps>(
   ({ label, error, required, options, className = "", onFocus, onBlur, name, ...props }, ref) => {
-    let setActiveField = (_val: string | null) => {};
-    try {
-      const context = useActiveField();
-      setActiveField = context.setActiveField;
-    } catch (e) {
-      // Ignore if outside provider
-    }
+    const context = useActiveField();
+    const setActiveField = context.setActiveField;
 
     const handleFocus = (e: React.FocusEvent<HTMLSelectElement>) => {
       if (name) setActiveField(name);

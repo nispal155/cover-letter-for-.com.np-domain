@@ -9,14 +9,8 @@ interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 export const FormField = React.forwardRef<HTMLInputElement, FormFieldProps>(
   ({ label, error, required, className = "", onFocus, onBlur, name, ...props }, ref) => {
-    // We use a try-catch or safe access since FormField might be used outside Generator
-    let setActiveField = (_val: string | null) => {};
-    try {
-      const context = useActiveField();
-      setActiveField = context.setActiveField;
-    } catch (e) {
-      // Ignore if outside provider
-    }
+    const context = useActiveField();
+    const setActiveField = context.setActiveField;
 
     const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
       if (name) setActiveField(name);
