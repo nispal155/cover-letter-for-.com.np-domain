@@ -138,6 +138,67 @@ export default function ImageCompressor() {
           )}
         </div>
 
+        {/* Document Upload Guidelines & Tips */}
+        <div className="mt-14 max-w-3xl mx-auto">
+          <div className="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 shadow-xs">
+            <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100">
+              <div className="p-2.5 bg-teal-50 rounded-xl text-teal-600">
+                <Icon icon="solar:document-medicine-bold-duotone" className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-navy-900">
+                  .NP Document Upload Guidelines &amp; Naming Rules
+                </h3>
+                <p className="text-xs sm:text-sm text-navy-500">
+                  Follow these Mercantile Communications standards to get your domain registration approved without delays.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-5 text-sm">
+              <div className="p-4 rounded-xl bg-gray-50 border border-gray-100 space-y-2">
+                <div className="flex items-center gap-2 font-bold text-navy-900">
+                  <Icon icon="solar:tag-bold-duotone" className="w-5 h-5 text-teal-600" />
+                  <h4>Short &amp; Sweet File Names</h4>
+                </div>
+                <p className="text-navy-600 text-xs sm:text-sm leading-relaxed">
+                  Never upload long camera names (e.g. <span className="font-mono text-xs text-red-600">IMG_20261021_...</span>) or names with spaces. Use clean names like <span className="font-mono text-xs text-teal-700 bg-teal-50 px-1 py-0.5 rounded font-bold">citizenship-front.jpg</span>, <span className="font-mono text-xs text-teal-700 bg-teal-50 px-1 py-0.5 rounded font-bold">citizenship-back.jpg</span>, or <span className="font-mono text-xs text-teal-700 bg-teal-50 px-1 py-0.5 rounded font-bold">pan-card.jpg</span>.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-gray-50 border border-gray-100 space-y-2">
+                <div className="flex items-center gap-2 font-bold text-navy-900">
+                  <Icon icon="solar:scale-bold-duotone" className="w-5 h-5 text-teal-600" />
+                  <h4>Strict 200 Kilobyte Limit</h4>
+                </div>
+                <p className="text-navy-600 text-xs sm:text-sm leading-relaxed">
+                  The registry automatically rejects files exceeding 200KB (204,800 bytes). Our compressor optimizes each file to ~170KB–195KB so it safely passes validation every time.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-gray-50 border border-gray-100 space-y-2">
+                <div className="flex items-center gap-2 font-bold text-navy-900">
+                  <Icon icon="solar:gallery-bold-duotone" className="w-5 h-5 text-teal-600" />
+                  <h4>Standard JPG Format Only</h4>
+                </div>
+                <p className="text-navy-600 text-xs sm:text-sm leading-relaxed">
+                  PDFs and TIFFs often fail or cause processing delays in the .np portal. Convert all scans and phone photos to standard JPG format before uploading.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-gray-50 border border-gray-100 space-y-2">
+                <div className="flex items-center gap-2 font-bold text-navy-900">
+                  <Icon icon="solar:eye-bold-duotone" className="w-5 h-5 text-teal-600" />
+                  <h4>Legible Text &amp; Signatures</h4>
+                </div>
+                <p className="text-navy-600 text-xs sm:text-sm leading-relaxed">
+                  Mercantile staff review documents manually. Make sure your name, citizenship number, date of issue, official government stamp, and signature remain sharp and clearly readable.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
       </div>
     </>

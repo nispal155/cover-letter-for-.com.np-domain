@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Icon } from "@iconify/react";
 import type { CompressionResult } from "../../utils/imageCompressor";
 
@@ -8,7 +9,39 @@ interface CompressedPreviewProps {
   onReset: () => void;
 }
 
+const PRESET_NAMES = [
+  { id: "citizenship-front", label: "Citizenship (Front)" },
+  { id: "citizenship-back", label: "Citizenship (Back)" },
+  { id: "pan-card", label: "PAN Card" },
+  { id: "company-reg", label: "Company Reg" },
+  { id: "document", label: "Document" },
+];
+
+function getShortAndSweetDefaultName(originalName: string): string {
+  const nameWithoutExt = originalName.replace(/\.[^/.]+$/, "").trim().toLowerCase();
+
+  if (nameWithoutExt.includes("pan")) return "pan-card";
+  if (nameWithoutExt.includes("back") || nameWithoutExt.includes("pachhadi")) return "citizenship-back";
+  if (nameWithoutExt.includes("front") || nameWithoutExt.includes("agadi")) return "citizenship-front";
+  if (nameWithoutExt.includes("comp") || nameWithoutExt.includes("reg") || nameWithoutExt.includes("darta")) return "company-reg";
+  if (nameWithoutExt.includes("citizen") || nameWithoutExt.includes("nagrikta")) return "citizenship-front";
+  if (nameWithoutExt.includes("licen") || nameWithoutExt.includes("drive")) return "driving-license";
+  if (nameWithoutExt.includes("pass")) return "passport";
+  if (nameWithoutExt.includes("letter") || nameWithoutExt.includes("cover")) return "cover-letter";
+
+  // If generic camera, scanner or long messy filename (e.g. IMG_20261113_..., WhatsApp..., SCAN...)
+  if (/^(img|pxl|dsc|scan|photo|whatsapp|screenshot)/i.test(nameWithoutExt) || nameWithoutExt.length > 18) {
+    return "citizenship-front";
+  }
+
+  // Clean characters to short kebab-case
+  const sanitized = nameWithoutExt.replace(/[^a-z0-9_-]/g, "-").replace(/-+/g, "-").slice(0, 20);
+  return sanitized || "citizenship-front";
+}
+
 export function CompressedPreview({ originalFile, originalPreviewUrl, result, onReset }: CompressedPreviewProps) {
+  const [fileName, setFileName] = useState(() => getShortAndSweetDefaultName(originalFile.name));
+
   const formatBytes = (bytes: number, decimals = 1) => {
     if (!+bytes) return "0 Bytes";
     const k = 1024;
@@ -18,10 +51,15 @@ export function CompressedPreview({ originalFile, originalPreviewUrl, result, on
     return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
   };
 
+  const cleanCurrentName = (fileName.trim().replace(/\.jpe?g$/i, "") || "document")
+    .replace(/[^a-zA-Z0-9_-]/g, "-")
+    .replace(/-+/g, "-");
+  const finalDownloadName = `${cleanCurrentName}.jpg`;
+
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = result.dataUrl;
-    link.download = result.fileName.endsWith(".jpg") ? result.fileName : `${result.fileName}.jpg`;
+    link.download = finalDownloadName;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -91,7 +129,8 @@ export function CompressedPreview({ originalFile, originalPreviewUrl, result, on
         </div>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
+      {/* Metrics Row */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
         <div>
           <p className="text-xs text-navy-500 font-medium uppercase tracking-wider mb-1">Dimensions</p>
           <p className="text-sm font-semibold text-navy-900">{Math.round(result.width)} × {Math.round(result.height)} px</p>
@@ -110,13 +149,57 @@ export function CompressedPreview({ originalFile, originalPreviewUrl, result, on
         </div>
       </div>
 
+      {/* Short & Sweet Download Filename Customizer */}
+      <div className="mb-8 p-5 bg-teal-50/60 rounded-2xl border border-teal-100">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2.5">
+          <label htmlFor="custom-filename" className="text-sm font-bold text-navy-900 flex items-center gap-1.5">
+            <Icon icon="solar:pen-bold-duotone" className="w-4 h-4 text-teal-600" />
+            Download File Name (Short &amp; Sweet):
+          </label>
+          <span className="text-xs text-navy-500">Pick a preset or customize below</span>
+        </div>
+
+        <div className="flex rounded-xl shadow-xs overflow-hidden border border-gray-300 focus-within:border-teal-500 focus-within:ring-2 focus-within:ring-teal-200 bg-white mb-3">
+          <input
+            id="custom-filename"
+            type="text"
+            value={fileName}
+            onChange={(e) => setFileName(e.target.value.replace(/[^a-zA-Z0-9_-]/g, "-"))}
+            placeholder="e.g. citizenship-front"
+            className="flex-1 px-4 py-2.5 text-navy-900 text-sm font-semibold focus:outline-none"
+          />
+          <span className="inline-flex items-center px-4 bg-gray-100 text-teal-800 text-sm font-bold border-l border-gray-200 select-none">
+            .jpg
+          </span>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-1.5">
+          <span className="text-xs font-semibold text-navy-600 mr-1">Quick Presets:</span>
+          {PRESET_NAMES.map((preset) => (
+            <button
+              key={preset.id}
+              type="button"
+              onClick={() => setFileName(preset.id)}
+              className={`text-xs px-3 py-1 rounded-full font-medium transition-all ${
+                cleanCurrentName === preset.id
+                  ? "bg-teal-600 text-white shadow-xs"
+                  : "bg-white text-navy-700 border border-gray-200 hover:border-teal-500 hover:text-teal-700"
+              }`}
+            >
+              {preset.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Action Buttons */}
       <div className="flex flex-col sm:flex-row gap-4">
         <button
           onClick={handleDownload}
           className="flex-1 bg-teal-600 hover:bg-teal-700 active:scale-[0.99] text-white py-4 px-6 rounded-xl font-semibold text-lg transition-all flex items-center justify-center gap-2 shadow-sm"
         >
           <Icon icon="solar:download-minimalistic-bold-duotone" className="w-5 h-5" />
-          Download Compressed JPG
+          Download {finalDownloadName}
         </button>
         <button
           onClick={onReset}

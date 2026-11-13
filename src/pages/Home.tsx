@@ -50,6 +50,10 @@ export default function Home() {
                 <Icon icon="solar:check-circle-bold-duotone" className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                 <p><strong>Our Tool:</strong> Our generator automatically scales and compresses your cover letter to ensure it downloads as a JPG image completely under the 200KB limit.</p>
               </div>
+              <div className="flex items-start gap-3">
+                <Icon icon="solar:check-circle-bold-duotone" className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                <p><strong>Short &amp; Sweet File Names:</strong> Give your files concise, clear names (e.g., <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm text-teal-700 dark:text-teal-400 font-mono">citizenship-front.jpg</code>, <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm text-teal-700 dark:text-teal-400 font-mono">citizenship-back.jpg</code>, <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm text-teal-700 dark:text-teal-400 font-mono">pan-card.jpg</code>). Avoid long camera names or spaces to ensure immediate portal upload approval.</p>
+              </div>
               </div>
             </div>
           </Reveal>
