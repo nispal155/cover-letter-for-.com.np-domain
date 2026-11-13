@@ -16,30 +16,37 @@ export function Header() {
   const isCompressorActive = location.pathname === '/compress';
 
   const navItemClass = (isActive: boolean) =>
-    `font-medium transition-colors ${
-      isActive ? "text-teal-600 dark:text-teal-400" : "text-navy-600 hover:text-navy-900 dark:text-slate-400 dark:hover:text-white"
+    `text-sm font-semibold transition-colors py-1 ${
+      isActive 
+        ? "text-[#1166B3] dark:text-[#7DC0E5] border-b-2 border-[#1166B3] dark:border-[#7DC0E5]" 
+        : "text-[#142536] hover:text-[#1166B3] dark:text-[#D9E4EC] dark:hover:text-white"
     }`;
 
   return (
-    <header className="bg-white/80 dark:bg-[#0A0F1C]/80 backdrop-blur-md border-b border-gray-200 dark:border-[#1a2333] sticky top-0 z-50 transition-colors">
+    <header className="bg-white dark:bg-[#1B2E40] border-b border-[#D9E4EC] dark:border-[#27465F] sticky top-0 z-50 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="flex items-center gap-2 group">
-              <div className="bg-teal-600 text-white p-2 rounded-lg group-hover:bg-teal-700 transition-colors shadow-sm">
-                <Icon icon="solar:document-bold-duotone" className="w-5 h-5" />
+            <Link to="/" className="flex items-center gap-2.5 group">
+              <div className="bg-[#1166B3] text-white p-2 rounded-lg group-hover:bg-[#0e5494] transition-colors shadow-xs">
+                <Icon icon="solar:document-bold" className="w-5 h-5 text-white" />
               </div>
-              <span className="font-bold text-lg text-navy-900 dark:text-white hidden sm:block">
-                NP Domain Letter Generator
-              </span>
-              <span className="font-bold text-lg text-navy-900 dark:text-white sm:hidden">
-                NP Letters
-              </span>
+              <div className="flex flex-col">
+                <span className="font-bold text-base text-[#1B2E40] dark:text-white tracking-tight hidden sm:block">
+                  NP Domain Letter Generator
+                </span>
+                <span className="font-bold text-base text-[#1B2E40] dark:text-white sm:hidden">
+                  NP Letters
+                </span>
+                <span className="text-[10px] uppercase tracking-wider font-semibold text-[#5C768D] dark:text-[#ABDAF0]">
+                  By Astra Technology Horizon
+                </span>
+              </div>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8 items-center">
+          <nav className="hidden md:flex space-x-7 items-center">
             <Link to="/" className={navItemClass(isHomeActive)}>
               Home
             </Link>
@@ -52,7 +59,7 @@ export function Header() {
             <ThemeToggle />
             <Link
               to="/generate"
-              className="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2.5 rounded-lg font-medium transition-colors shadow-sm"
+              className="bg-[#1166B3] hover:bg-[#0e5494] text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors shadow-xs min-h-[40px] inline-flex items-center"
             >
               Create Letter
             </Link>
@@ -63,7 +70,7 @@ export function Header() {
             <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-navy-600 hover:text-navy-900 dark:text-slate-400 dark:hover:text-white focus:outline-none"
+              className="text-[#142536] hover:text-[#1166B3] dark:text-[#D9E4EC] dark:hover:text-white p-1.5 focus:outline-none"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
@@ -78,45 +85,45 @@ export function Header() {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-[#0A0F1C] border-t border-gray-100 dark:border-[#1a2333]">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-lg rounded-b-lg">
-            <Link
-              to="/"
-              className={`block px-3 py-2 rounded-md text-base ${
-                isHomeActive
-                  ? "text-teal-600 bg-teal-50 dark:bg-teal-900/20 dark:text-teal-400"
-                  : "text-navy-700 hover:text-navy-900 hover:bg-gray-50 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800"
-              }`}
-              onClick={closeMenu}
-            >
-              Home
-            </Link>
-            <a
-              href="/#guidelines"
-              className={`block px-3 py-2 rounded-md text-base ${
-                isGuidelinesActive
-                  ? "text-teal-600 bg-teal-50 dark:bg-teal-900/20 dark:text-teal-400"
-                  : "text-navy-700 hover:text-navy-900 hover:bg-gray-50 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800"
-              }`}
-              onClick={closeMenu}
-            >
-              Guidelines
-            </a>
-            <Link
-              to="/compress"
-              className={`block px-3 py-2 rounded-md text-base ${
-                isCompressorActive
-                  ? "text-teal-600 bg-teal-50 dark:bg-teal-900/20 dark:text-teal-400"
-                  : "text-navy-700 hover:text-navy-900 hover:bg-gray-50 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800"
-              }`}
-              onClick={closeMenu}
-            >
-              Image Compressor
-            </Link>
+        <div className="md:hidden border-t border-[#D9E4EC] dark:border-[#27465F] bg-white dark:bg-[#1B2E40] px-4 pt-3 pb-5 space-y-3 shadow-lg">
+          <Link
+            to="/"
+            onClick={closeMenu}
+            className={`block px-3 py-2 rounded-lg text-base font-semibold ${
+              isHomeActive
+                ? "bg-[#F5F8FC] text-[#1166B3] dark:bg-[#27465F] dark:text-[#ABDAF0]"
+                : "text-[#142536] dark:text-[#D9E4EC]"
+            }`}
+          >
+            Home
+          </Link>
+          <a
+            href="/#guidelines"
+            onClick={closeMenu}
+            className={`block px-3 py-2 rounded-lg text-base font-semibold ${
+              isGuidelinesActive
+                ? "bg-[#F5F8FC] text-[#1166B3] dark:bg-[#27465F] dark:text-[#ABDAF0]"
+                : "text-[#142536] dark:text-[#D9E4EC]"
+            }`}
+          >
+            Guidelines
+          </a>
+          <Link
+            to="/compress"
+            onClick={closeMenu}
+            className={`block px-3 py-2 rounded-lg text-base font-semibold ${
+              isCompressorActive
+                ? "bg-[#F5F8FC] text-[#1166B3] dark:bg-[#27465F] dark:text-[#ABDAF0]"
+                : "text-[#142536] dark:text-[#D9E4EC]"
+            }`}
+          >
+            Image Compressor
+          </Link>
+          <div className="pt-2">
             <Link
               to="/generate"
-              className="block px-3 py-2 text-base font-medium text-teal-600 hover:text-teal-700"
               onClick={closeMenu}
+              className="w-full inline-flex items-center justify-center bg-[#1166B3] hover:bg-[#0e5494] text-white px-5 py-3 rounded-lg font-semibold text-base transition-colors"
             >
               Create Letter
             </Link>

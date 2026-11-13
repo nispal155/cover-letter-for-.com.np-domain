@@ -18,7 +18,7 @@ export const TextareaField = React.forwardRef<HTMLTextAreaElement, TextareaField
           className={`w-full px-4 py-2.5 rounded-lg border ${
             error
               ? "border-red-300 focus:ring-red-500 focus:border-red-500"
-              : "border-gray-300 focus:ring-teal-500 focus:border-teal-500"
+              : "border-[#D9E4EC] focus:ring-[#1166B3] focus:border-[#1166B3]"
           } shadow-sm focus:outline-none focus:ring-2 transition-shadow bg-white text-navy-900 placeholder-gray-400`}
           {...props}
         />

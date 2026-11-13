@@ -41,7 +41,7 @@ function ScrollProgress() {
 
   return (
     <div 
-      className="fixed top-0 left-0 h-[3px] bg-teal-600 z-[100] transition-all duration-150 ease-out shadow-[0_0_10px_rgba(13,148,136,0.8)]" 
+      className="fixed top-0 left-0 h-[2.5px] bg-[#1166B3] z-[100] transition-all duration-150 ease-out shadow-[0_0_8px_rgba(17,102,179,0.5)]" 
       style={{ width: `${progress}%` }} 
     />
   );

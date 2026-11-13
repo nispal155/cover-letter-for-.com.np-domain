@@ -41,8 +41,8 @@ export function DomainDetails() {
         </div>
         
         {fullDomain && !errors.domainName && (
-          <div className="bg-teal-50 text-teal-800 p-4 rounded-lg flex items-center justify-between">
-            <span className="text-sm font-medium">Selected Domain:</span>
+          <div className="bg-[#E9F0F6] text-[#1166B3] border border-[#D9E4EC] dark:bg-[#27465F]/60 dark:text-[#ABDAF0] dark:border-[#27465F] p-4 rounded-lg flex items-center justify-between">
+            <span className="text-sm font-semibold">Selected Domain:</span>
             <span className="font-bold">{fullDomain.toLowerCase()}</span>
           </div>
         )}

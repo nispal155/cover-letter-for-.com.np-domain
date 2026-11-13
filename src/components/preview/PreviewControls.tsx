@@ -56,7 +56,7 @@ export function PreviewControls({
           className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-medium shadow-sm transition-all ${
             !isValid || isGenerating
               ? "bg-gray-200 text-gray-500 cursor-not-allowed dark:bg-gray-800 dark:text-gray-600"
-              : "bg-teal-600 hover:bg-teal-700 text-white"
+              : "bg-[#1166B3] hover:bg-[#0e5494] text-white"
           }`}
         >
           <Icon icon="solar:download-minimalistic-bold-duotone" className="w-4 h-4" />

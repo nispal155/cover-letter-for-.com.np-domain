@@ -1,5 +1,4 @@
-import { motion, useInView } from "framer-motion";
-import { useRef, type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 interface RevealProps {
   children: ReactNode;
@@ -7,23 +6,14 @@ interface RevealProps {
   delay?: number;
 }
 
-export function Reveal({ children, width = "100%", delay = 0 }: RevealProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
+/**
+ * Clean structural container without synthetic scroll-pop overlay animations.
+ * Provides immediate, reliable rendering like a professional, human-crafted web application.
+ */
+export function Reveal({ children, width = "100%" }: RevealProps) {
   return (
-    <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }}>
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 75 },
-          visible: { opacity: 1, y: 0 },
-        }}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        transition={{ duration: 0.5, delay: delay }}
-      >
-        {children}
-      </motion.div>
+    <div style={{ width }} className="w-full">
+      {children}
     </div>
   );
 }

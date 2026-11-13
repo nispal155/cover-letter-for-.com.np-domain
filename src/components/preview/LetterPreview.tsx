@@ -13,7 +13,7 @@ const Highlight = ({ field, children }: { field: string | string[], children: Re
   const fields = Array.isArray(field) ? field : [field];
   const isActive = activeField && fields.includes(activeField);
   return (
-    <span className={`transition-all duration-300 ${isActive ? 'bg-teal-200/50 shadow-[0_0_0_4px_rgba(153,246,228,0.5)] rounded-sm relative z-10 text-teal-900' : ''}`}>
+    <span className={`transition-all duration-300 ${isActive ? 'bg-[#ABDAF0]/60 shadow-[0_0_0_4px_rgba(171,218,240,0.6)] rounded-sm relative z-10 text-[#142536]' : ''}`}>
       {children}
     </span>
   );
@@ -58,7 +58,7 @@ export function LetterPreview({ formData }: LetterPreviewProps) {
               <span key={i}>
                 {part}
                 {i !== parts.length - 1 && (
-                  <span className="transition-all duration-300 bg-teal-200/50 shadow-[0_0_0_4px_rgba(153,246,228,0.5)] rounded-sm relative z-10 text-teal-900">
+                  <span className="transition-all duration-300 bg-[#ABDAF0]/60 shadow-[0_0_0_4px_rgba(171,218,240,0.6)] rounded-sm relative z-10 text-[#142536]">
                     {fullDomain}
                   </span>
                 )}
@@ -103,7 +103,7 @@ export function LetterPreview({ formData }: LetterPreviewProps) {
                   <img 
                     src={data.letterhead.logo} 
                     alt="Company Logo" 
-                    className={`h-16 object-contain mx-auto mb-4 transition-all duration-300 ${activeField === 'logo' ? 'ring-4 ring-teal-200/50 rounded-sm' : ''}`}
+                    className={`h-16 object-contain mx-auto mb-4 transition-all duration-300 ${activeField === 'logo' ? 'ring-4 ring-[#ABDAF0]/60 rounded-sm' : ''}`}
                   />
                 )}
                 <h1 className="font-bold text-2xl leading-tight uppercase">
@@ -161,7 +161,7 @@ export function LetterPreview({ formData }: LetterPreviewProps) {
             {/* Closing */}
             <div className="mt-auto pt-10 relative">
               {data.stamp && !data.isPersonal && data.stamp.startsWith('data:image/') && (
-                <div className={`absolute top-10 left-32 opacity-80 pointer-events-none transition-all duration-300 ${activeField === 'stamp' ? 'ring-4 ring-teal-200/50 rounded-sm' : ''}`}>
+                <div className={`absolute top-10 left-32 opacity-80 pointer-events-none transition-all duration-300 ${activeField === 'stamp' ? 'ring-4 ring-[#ABDAF0]/60 rounded-sm' : ''}`}>
                   <img src={data.stamp} alt="Company Stamp" className="w-32 h-32 object-contain mix-blend-multiply" />
                 </div>
               )}

@@ -9,13 +9,13 @@ export default function Terms() {
         description="Terms of Service for the NP Domain Letter Generator tool. Please read before generating your .NP domain registration documents."
         url="/terms"
       />
-      <div className="bg-gray-50 dark:bg-gray-900 min-h-screen py-16 px-4 sm:px-6 lg:px-8 transition-colors">
-      <div className="max-w-3xl mx-auto bg-white dark:bg-[#0A0F1C] p-8 md:p-12 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800">
-        <div className="flex items-center gap-4 mb-8 pb-6 border-b border-gray-100 dark:border-gray-800">
-          <div className="bg-teal-100 dark:bg-teal-900/30 p-3 rounded-xl text-teal-600 dark:text-teal-400">
-            <Icon icon="solar:document-text-bold-duotone" className="w-8 h-8" />
+      <div className="bg-[#F5F8FC] dark:bg-[#142536] min-h-screen py-16 px-4 sm:px-6 lg:px-8 transition-colors">
+      <div className="max-w-3xl mx-auto bg-white dark:bg-[#1B2E40] p-8 md:p-12 rounded-xl border border-[#D9E4EC] dark:border-[#27465F]">
+        <div className="flex items-center gap-4 mb-8 pb-6 border-b border-[#D9E4EC] dark:border-[#27465F]">
+          <div className="bg-[#E9F0F6] dark:bg-[#27465F] p-3 rounded-xl text-[#1166B3] dark:text-[#ABDAF0]">
+            <Icon icon="solar:document-text-bold" className="w-7 h-7" />
           </div>
-          <h1 className="text-3xl font-extrabold text-navy-900 dark:text-white tracking-tight">Terms of Service</h1>
+          <h1 className="text-3xl font-extrabold text-[#1B2E40] dark:text-white tracking-tight">Terms of Service</h1>
         </div>
 
         <div className="space-y-8 text-gray-700 dark:text-gray-300">

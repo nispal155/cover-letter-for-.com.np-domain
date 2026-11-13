@@ -36,7 +36,7 @@ export function SuccessModal({ isOpen, onClose, onDownload, onCreateAnother }: S
                 onDownload();
                 onClose();
               }}
-              className="w-full bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+              className="w-full bg-[#1166B3] hover:bg-[#0e5494] text-white px-6 py-3 rounded-lg font-medium transition-colors"
             >
               Download Image Again
             </button>

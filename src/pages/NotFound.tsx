@@ -3,20 +3,19 @@ import { Icon } from "@iconify/react";
 
 export default function NotFound() {
   return (
-    <div className="bg-gray-50 flex flex-col items-center justify-center min-h-[calc(100vh-160px)] px-4">
+    <div className="bg-[#F5F8FC] dark:bg-[#142536] flex flex-col items-center justify-center min-h-[calc(100vh-160px)] px-4">
       <div className="text-center">
-        <Icon icon="solar:ghost-bold-duotone" className="w-32 h-32 text-teal-500 mx-auto mb-6 opacity-80" />
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-navy-900 mb-4 tracking-tight">404</h1>
-        <h2 className="text-xl sm:text-2xl font-bold text-navy-800 mb-6">Page Not Found</h2>
-        <p className="text-navy-600 mb-8 max-w-md mx-auto">
-          The page you are looking for doesn't exist or has been moved. 
-          Let's get you back on track.
+        <Icon icon="solar:ghost-bold" className="w-24 h-24 text-[#1166B3] dark:text-[#7DC0E5] mx-auto mb-5 opacity-90" />
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-[#1B2E40] dark:text-white mb-2 tracking-tight">404</h1>
+        <h2 className="text-xl font-bold text-[#27465F] dark:text-[#ABDAF0] mb-4">Page Not Found</h2>
+        <p className="text-[#3E5A74] dark:text-[#D9E4EC] text-sm mb-6 max-w-sm mx-auto leading-relaxed">
+          The requested page does not exist or has been relocated.
         </p>
         <Link 
           to="/"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-xl transition-all shadow-md shadow-teal-500/20 hover:shadow-lg hover:shadow-teal-500/30 hover:-translate-y-0.5"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-[#1166B3] hover:bg-[#0e5494] text-white font-semibold text-sm rounded-lg transition-colors shadow-xs"
         >
-          <Icon icon="solar:home-smile-bold-duotone" className="w-5 h-5" />
+          <Icon icon="solar:home-smile-bold" className="w-4 h-4" />
           Back to Home
         </Link>
       </div>

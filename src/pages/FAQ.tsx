@@ -44,25 +44,28 @@ export default function FAQ() {
         description="Find answers to common questions about registering a free .com.np domain in Nepal, document requirements, and using our cover letter generator tool."
         url="/faq"
       />
-      <div className="bg-gray-50 dark:bg-gray-900 min-h-screen py-16 px-4 sm:px-6 lg:px-8 transition-colors">
+      <div className="bg-[#F5F8FC] dark:bg-[#142536] min-h-screen py-16 px-4 sm:px-6 lg:px-8 transition-colors">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-navy-900 dark:text-white tracking-tight mb-4">
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#E9F0F6] text-[#1166B3] dark:bg-[#27465F] dark:text-[#ABDAF0] border border-[#D9E4EC] dark:border-[#27465F] mb-3">
+              Help Center &amp; Guidance
+            </span>
+            <h1 className="text-3xl md:text-4xl font-extrabold text-[#1B2E40] dark:text-white tracking-tight mb-3">
               Frequently Asked Questions
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-[#3E5A74] dark:text-[#D9E4EC] max-w-2xl mx-auto">
               Everything you need to know about .NP domains and our tools.
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-white dark:bg-[#0A0F1C] p-6 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800">
-                <h3 className="text-xl font-bold text-navy-900 dark:text-white mb-3 flex items-start gap-3">
-                  <Icon icon="solar:question-circle-bold-duotone" className="w-6 h-6 text-teal-600 shrink-0 mt-0.5" />
+              <div key={index} className="bg-white dark:bg-[#1B2E40] p-6 rounded-xl border border-[#D9E4EC] dark:border-[#27465F]">
+                <h3 className="text-base sm:text-lg font-bold text-[#1B2E40] dark:text-white mb-2 flex items-start gap-2.5">
+                  <Icon icon="solar:question-circle-bold" className="w-5 h-5 text-[#1166B3] dark:text-[#ABDAF0] shrink-0 mt-0.5" />
                   {faq.question}
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 ml-9">
+                <p className="text-sm text-[#3E5A74] dark:text-[#D9E4EC] ml-7 leading-relaxed">
                   {faq.answer}
                 </p>
               </div>

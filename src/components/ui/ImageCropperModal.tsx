@@ -114,7 +114,7 @@ export function ImageCropperModal({ isOpen, imageSrc, onClose, onCropComplete, a
           <button 
             onClick={handleSave}
             disabled={!completedCrop?.width || !completedCrop?.height}
-            className="px-6 py-2 font-medium text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-sm transition-colors disabled:opacity-50"
+            className="px-6 py-2 font-medium text-white bg-[#1166B3] hover:bg-[#0e5494] rounded-lg shadow-sm transition-colors disabled:opacity-50"
           >
             Crop & Save
           </button>

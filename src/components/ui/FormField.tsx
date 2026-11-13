@@ -35,7 +35,7 @@ export const FormField = React.forwardRef<HTMLInputElement, FormFieldProps>(
           className={`w-full px-4 py-2.5 rounded-lg border ${
             error
               ? "border-red-300 focus:ring-red-500 focus:border-red-500 dark:border-red-500/50"
-              : "border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:border-gray-600 dark:focus:border-teal-500 dark:focus:ring-teal-500/50"
+              : "border-[#D9E4EC] focus:ring-[#1166B3] focus:border-[#1166B3] dark:border-gray-600 dark:focus:border-[#7DC0E5] dark:focus:ring-[#7DC0E5]/50"
           } shadow-sm focus:outline-none focus:ring-2 transition-shadow bg-white dark:bg-gray-800 text-navy-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500`}
           {...props}
         />

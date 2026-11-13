@@ -172,7 +172,7 @@ export function DomainForm({ onFormChange, onValidationChange, externalResetFlag
                       <input 
                         type="radio" 
                         value="company" 
-                        className="w-4 h-4 text-teal-600 focus:ring-teal-500 border-gray-300 dark:border-gray-600 dark:bg-gray-800"
+                        className="w-4 h-4 text-[#1166B3] focus:ring-[#1166B3] border-gray-300 dark:border-gray-600 dark:bg-gray-800"
                         {...methods.register("registrationType")}
                       />
                       <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Company / Organization</span>
@@ -181,7 +181,7 @@ export function DomainForm({ onFormChange, onValidationChange, externalResetFlag
                       <input 
                         type="radio" 
                         value="personal" 
-                        className="w-4 h-4 text-teal-600 focus:ring-teal-500 border-gray-300 dark:border-gray-600 dark:bg-gray-800"
+                        className="w-4 h-4 text-[#1166B3] focus:ring-[#1166B3] border-gray-300 dark:border-gray-600 dark:bg-gray-800"
                         {...methods.register("registrationType")}
                       />
                       <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Personal Use</span>
@@ -246,7 +246,7 @@ export function DomainForm({ onFormChange, onValidationChange, externalResetFlag
               <button
                 type="button"
                 onClick={handleNext}
-                className="px-6 py-2.5 rounded-lg font-medium text-sm flex items-center gap-2 bg-teal-600 text-white hover:bg-teal-700 transition-colors shadow-sm"
+                className="px-6 py-2.5 rounded-lg font-medium text-sm flex items-center gap-2 bg-[#1166B3] text-white hover:bg-[#0e5494] transition-colors shadow-sm"
               >
                 Next Step
                 <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4" />

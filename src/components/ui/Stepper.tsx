@@ -24,10 +24,10 @@ export function Stepper({ currentStep, steps, onStepClick, completedSteps }: Ste
                   onClick={() => isClickable && onStepClick(step.id)}
                   className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors relative z-10 ${
                     isActive
-                      ? "bg-teal-600 text-white shadow-md shadow-teal-500/30"
+                      ? "bg-[#1166B3] text-white shadow-xs"
                       : isCompleted
-                      ? "bg-teal-100 text-teal-600 dark:bg-teal-900/30 dark:text-teal-400 cursor-pointer hover:bg-teal-200"
-                      : "bg-gray-100 text-gray-400 dark:bg-gray-800 dark:text-gray-500"
+                      ? "bg-[#E9F0F6] text-[#1166B3] dark:bg-[#27465F] dark:text-[#ABDAF0] cursor-pointer hover:bg-[#D9E4EC]"
+                      : "bg-gray-100 text-gray-400 dark:bg-[#1B2E40] dark:text-gray-500"
                   }`}
                   disabled={!isClickable}
                 >
@@ -38,11 +38,11 @@ export function Stepper({ currentStep, steps, onStepClick, completedSteps }: Ste
                   )}
                 </button>
                 <span
-                  className={`mt-2 text-xs font-medium text-center hidden sm:block ${
+                  className={`mt-2 text-xs font-semibold text-center hidden sm:block ${
                     isActive
-                      ? "text-navy-900 dark:text-white"
+                      ? "text-[#1B2E40] dark:text-white"
                       : isCompleted
-                      ? "text-teal-600 dark:text-teal-400"
+                      ? "text-[#1166B3] dark:text-[#7DC0E5]"
                       : "text-gray-400 dark:text-gray-500"
                   }`}
                 >
@@ -53,7 +53,7 @@ export function Stepper({ currentStep, steps, onStepClick, completedSteps }: Ste
               {index < steps.length - 1 && (
                 <div 
                   className={`absolute top-5 left-1/2 w-full h-[2px] -z-0 transition-colors ${
-                    isCompleted ? "bg-teal-500" : "bg-gray-200 dark:bg-gray-700"
+                    isCompleted ? "bg-[#1166B3]" : "bg-[#D9E4EC] dark:bg-[#27465F]"
                   }`} 
                 />
               )}

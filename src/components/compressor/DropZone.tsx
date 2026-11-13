@@ -58,10 +58,10 @@ export function DropZone({ onFileSelect, disabled = false }: DropZoneProps) {
 
   return (
     <div
-      className={`relative w-full rounded-2xl border-2 border-dashed p-8 sm:p-14 transition-all flex flex-col items-center justify-center text-center
+      className={`relative w-full rounded-xl border-2 border-dashed p-8 sm:p-14 transition-colors flex flex-col items-center justify-center text-center
         ${isDragging 
-          ? "border-teal-500 bg-teal-50 scale-[1.01]" 
-          : "border-gray-300 bg-white hover:bg-gray-50 hover:border-teal-500/60 shadow-sm"
+          ? "border-[#1166B3] bg-[#E9F0F6] dark:bg-[#27465F]/40" 
+          : "border-[#D9E4EC] dark:border-[#27465F] bg-white dark:bg-[#1B2E40] hover:border-[#1166B3] hover:bg-[#F5F8FC] dark:hover:bg-[#1e3449]"
         }
         ${disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : "cursor-pointer"}
       `}
@@ -77,46 +77,42 @@ export function DropZone({ onFileSelect, disabled = false }: DropZoneProps) {
         onChange={handleChange}
         disabled={disabled}
       />
-      <div className="bg-teal-50 p-4 rounded-full shadow-inner mb-4 border border-teal-100">
-        {isDragging ? (
-          <Icon icon="solar:gallery-bold-duotone" className="w-9 h-9 text-teal-600 animate-pulse" />
-        ) : (
-          <Icon icon="solar:cloud-upload-bold-duotone" className="w-9 h-9 text-teal-600" />
-        )}
+      <div className="bg-[#E9F0F6] dark:bg-[#27465F] p-4 rounded-xl mb-4 border border-[#D9E4EC] dark:border-[#27465F]">
+        <Icon icon="solar:cloud-upload-bold" className="w-8 h-8 text-[#1166B3] dark:text-[#ABDAF0]" />
       </div>
 
-      <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-2">
+      <h3 className="text-xl sm:text-2xl font-bold text-[#1B2E40] dark:text-white mb-2 tracking-tight">
         Pick a JPG or PNG photo
       </h3>
-      <p className="text-navy-600 text-sm sm:text-base max-w-md">
-        Even a high-resolution one from your phone or scanner. It's automatically converted to JPG, resized, and compressed to fit the <strong className="text-navy-900 font-semibold">200 KB limit</strong> before upload.
+      <p className="text-[#3E5A74] dark:text-[#D9E4EC] text-sm sm:text-base max-w-md">
+        Even a high-resolution one from your phone or scanner. It's automatically converted to JPG, resized, and compressed to fit the <strong className="text-[#1B2E40] dark:text-white font-semibold">200 KB limit</strong> before upload.
       </p>
 
-      <div className="mt-4 flex items-center justify-center gap-2 text-xs font-semibold text-teal-800">
-        <span className="inline-flex items-center gap-1 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
-          <Icon icon="solar:smartphone-rotate-orientation-bold-duotone" className="w-3.5 h-3.5 text-teal-600" />
+      <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs font-semibold">
+        <span className="inline-flex items-center gap-1.5 bg-[#F5F8FC] dark:bg-[#27465F] text-[#1166B3] dark:text-[#ABDAF0] px-3 py-1 rounded-md border border-[#D9E4EC] dark:border-[#27465F]">
+          <Icon icon="solar:smartphone-rotate-orientation-bold" className="w-3.5 h-3.5" />
           Phone Photos
         </span>
-        <span className="inline-flex items-center gap-1 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
-          <Icon icon="solar:scanner-bold-duotone" className="w-3.5 h-3.5 text-teal-600" />
+        <span className="inline-flex items-center gap-1.5 bg-[#F5F8FC] dark:bg-[#27465F] text-[#1166B3] dark:text-[#ABDAF0] px-3 py-1 rounded-md border border-[#D9E4EC] dark:border-[#27465F]">
+          <Icon icon="solar:scanner-bold" className="w-3.5 h-3.5" />
           Scanners
         </span>
-        <span className="inline-flex items-center gap-1 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
-          <Icon icon="solar:document-text-bold-duotone" className="w-3.5 h-3.5 text-teal-600" />
-          Citizenship & PAN
+        <span className="inline-flex items-center gap-1.5 bg-[#F5F8FC] dark:bg-[#27465F] text-[#1166B3] dark:text-[#ABDAF0] px-3 py-1 rounded-md border border-[#D9E4EC] dark:border-[#27465F]">
+          <Icon icon="solar:document-text-bold" className="w-3.5 h-3.5" />
+          Citizenship &amp; PAN
         </span>
       </div>
 
-      <div className="mt-5 flex items-center justify-center gap-3 text-xs font-medium text-navy-500">
-        <span className="bg-gray-100 px-2.5 py-1 rounded border border-gray-200">JPG</span>
-        <span className="bg-gray-100 px-2.5 py-1 rounded border border-gray-200">PNG</span>
-        <span className="text-gray-400">→</span>
-        <span className="bg-green-50 text-green-700 font-bold px-2.5 py-1 rounded border border-green-200">Always JPG &lt; 200KB</span>
+      <div className="mt-5 flex items-center justify-center gap-2.5 text-xs font-medium text-[#5C768D] dark:text-[#D9E4EC]">
+        <span className="bg-[#E9F0F6] dark:bg-[#27465F] px-2 py-0.5 rounded border border-[#D9E4EC] dark:border-[#27465F]">JPG</span>
+        <span className="bg-[#E9F0F6] dark:bg-[#27465F] px-2 py-0.5 rounded border border-[#D9E4EC] dark:border-[#27465F]">PNG</span>
+        <span>→</span>
+        <span className="bg-[#E9F0F6] dark:bg-[#27465F] text-[#1166B3] dark:text-[#ABDAF0] font-bold px-2 py-0.5 rounded border border-[#D9E4EC] dark:border-[#27465F]">Always Standard JPG &lt; 200KB</span>
       </div>
 
       {error && (
         <div className="absolute bottom-3 inset-x-0 mx-auto px-4 w-fit">
-          <div className="bg-red-50 text-red-600 text-sm py-1.5 px-3 rounded-md border border-red-200 shadow-sm animate-in slide-in-from-bottom-2 duration-300">
+          <div className="bg-red-50 text-red-700 text-xs sm:text-sm py-1.5 px-3 rounded-md border border-red-200 shadow-xs">
             {error}
           </div>
         </div>

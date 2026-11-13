@@ -29,12 +29,10 @@ function getShortAndSweetDefaultName(originalName: string): string {
   if (nameWithoutExt.includes("pass")) return "passport";
   if (nameWithoutExt.includes("letter") || nameWithoutExt.includes("cover")) return "cover-letter";
 
-  // If generic camera, scanner or long messy filename (e.g. IMG_20261113_..., WhatsApp..., SCAN...)
   if (/^(img|pxl|dsc|scan|photo|whatsapp|screenshot)/i.test(nameWithoutExt) || nameWithoutExt.length > 18) {
     return "citizenship-front";
   }
 
-  // Clean characters to short kebab-case
   const sanitized = nameWithoutExt.replace(/[^a-z0-9_-]/g, "-").replace(/-+/g, "-").slice(0, 20);
   return sanitized || "citizenship-front";
 }
@@ -68,122 +66,122 @@ export function CompressedPreview({ originalFile, originalPreviewUrl, result, on
   const isUnder200KB = result.compressedSize <= 200 * 1024;
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 sm:p-8">
+    <div className="bg-white dark:bg-[#1B2E40] rounded-xl border border-[#D9E4EC] dark:border-[#27465F] p-6 sm:p-8">
       
       {/* Upload Compliance Banner */}
-      <div className={`mb-6 p-4 rounded-xl flex items-start gap-3 border ${
+      <div className={`mb-6 p-4 rounded-lg flex items-start gap-3 border ${
         isUnder200KB 
-          ? "bg-emerald-50 border-emerald-200 text-emerald-900" 
-          : "bg-amber-50 border-amber-200 text-amber-900"
+          ? "bg-[#E9F0F6] dark:bg-[#27465F]/60 border-[#D9E4EC] dark:border-[#7DC0E5]/30 text-[#142536] dark:text-[#D9E4EC]" 
+          : "bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-800 text-amber-900 dark:text-amber-200"
       }`}>
         <Icon 
-          icon={isUnder200KB ? "solar:check-circle-bold-duotone" : "solar:info-circle-bold-duotone"} 
-          className={`w-6 h-6 flex-shrink-0 mt-0.5 ${isUnder200KB ? "text-emerald-600" : "text-amber-600"}`} 
+          icon={isUnder200KB ? "solar:check-circle-bold" : "solar:info-circle-bold"} 
+          className={`w-5 h-5 flex-shrink-0 mt-0.5 ${isUnder200KB ? "text-[#1166B3] dark:text-[#7DC0E5]" : "text-amber-600"}`} 
         />
         <div className="flex-1">
-          <p className="font-bold text-sm sm:text-base">
-            {isUnder200KB ? "Ready for Upload — Under 200 Kilobyte Limit!" : "Image Compressed"}
+          <p className="font-bold text-sm sm:text-base text-[#1B2E40] dark:text-white">
+            {isUnder200KB ? "Ready for Upload — Meets the 200 Kilobyte Limit" : "Image Compressed"}
           </p>
-          <p className="text-xs sm:text-sm mt-0.5 opacity-90">
-            Automatically converted to standard JPG ({formatBytes(result.compressedSize)}) and resized for .NP domain registration or official portal uploads.
+          <p className="text-xs sm:text-sm mt-0.5 text-[#3E5A74] dark:text-[#D9E4EC]">
+            Converted to standard JPG ({formatBytes(result.compressedSize)}) and verified for official .np registration portal standards.
           </p>
         </div>
       </div>
 
       <div className="flex flex-col md:flex-row gap-8 items-center mb-8">
         {/* Original */}
-        <div className="flex-1 w-full space-y-3 text-center">
+        <div className="flex-1 w-full space-y-2.5 text-center">
           <div className="flex items-center justify-center gap-2">
-            <h4 className="font-bold text-navy-900">Original Photo</h4>
-            <span className="text-xs text-navy-500 bg-gray-100 px-2 py-0.5 rounded">
+            <h4 className="font-bold text-[#1B2E40] dark:text-white text-sm">Original Photo</h4>
+            <span className="text-[10px] font-semibold text-[#5C768D] dark:text-[#ABDAF0] bg-[#F5F8FC] dark:bg-[#27465F] px-2 py-0.5 rounded border border-[#D9E4EC] dark:border-[#27465F]">
               {originalFile.type.replace("image/", "").toUpperCase() || "PHOTO"}
             </span>
           </div>
-          <div className="relative aspect-[4/3] w-full max-w-sm mx-auto rounded-xl overflow-hidden bg-gray-100 border border-gray-200">
+          <div className="relative aspect-[4/3] w-full max-w-sm mx-auto rounded-lg overflow-hidden bg-[#F5F8FC] dark:bg-[#142536] border border-[#D9E4EC] dark:border-[#27465F]">
             <img src={originalPreviewUrl} alt="Original" className="w-full h-full object-contain" />
           </div>
-          <div className="inline-flex bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-semibold">
+          <div className="inline-flex bg-[#F5F8FC] dark:bg-[#27465F] text-[#3E5A74] dark:text-[#D9E4EC] px-3 py-1 rounded-full text-xs font-semibold border border-[#D9E4EC] dark:border-[#27465F]">
             {formatBytes(originalFile.size)}
           </div>
         </div>
 
-        {/* Arrow (hidden on small mobile) */}
-        <div className="flex flex-shrink-0 items-center justify-center bg-teal-50 text-teal-600 rounded-full p-3 border border-teal-100">
-          <Icon icon="solar:arrow-right-linear" className="w-6 h-6 rotate-90 md:rotate-0" />
+        {/* Arrow */}
+        <div className="flex flex-shrink-0 items-center justify-center bg-[#E9F0F6] dark:bg-[#27465F] text-[#1166B3] dark:text-[#ABDAF0] rounded-full p-2.5 border border-[#D9E4EC] dark:border-[#27465F]">
+          <Icon icon="solar:arrow-right-linear" className="w-5 h-5 rotate-90 md:rotate-0" />
         </div>
 
         {/* Compressed */}
-        <div className="flex-1 w-full space-y-3 text-center">
+        <div className="flex-1 w-full space-y-2.5 text-center">
           <div className="flex items-center justify-center gap-2">
-            <h4 className="font-bold text-teal-700">Converted &amp; Compressed</h4>
-            <span className="text-xs font-bold text-teal-800 bg-teal-100 px-2 py-0.5 rounded">
+            <h4 className="font-bold text-[#1166B3] dark:text-[#7DC0E5] text-sm">Converted &amp; Compressed</h4>
+            <span className="text-[10px] font-bold text-[#1166B3] dark:text-[#ABDAF0] bg-[#E9F0F6] dark:bg-[#27465F] px-2 py-0.5 rounded border border-[#D9E4EC] dark:border-[#27465F]">
               JPG
             </span>
           </div>
-          <div className="relative aspect-[4/3] w-full max-w-sm mx-auto rounded-xl overflow-hidden bg-gray-100 border border-teal-300 shadow-[0_0_20px_rgba(13,148,136,0.12)]">
+          <div className="relative aspect-[4/3] w-full max-w-sm mx-auto rounded-lg overflow-hidden bg-[#F5F8FC] dark:bg-[#142536] border border-[#1166B3]/40 dark:border-[#7DC0E5]/40 shadow-xs">
             <img src={result.dataUrl} alt="Compressed" className="w-full h-full object-contain" />
           </div>
-          <div className="inline-flex bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-bold border border-emerald-200">
+          <div className="inline-flex bg-[#E9F0F6] dark:bg-[#27465F] text-[#1166B3] dark:text-[#ABDAF0] px-3 py-1 rounded-full text-xs font-bold border border-[#D9E4EC] dark:border-[#27465F]">
             {formatBytes(result.compressedSize)} (✓ &lt; 200KB)
           </div>
         </div>
       </div>
 
       {/* Metrics Row */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 mb-6 bg-[#F5F8FC] dark:bg-[#27465F]/40 rounded-lg p-3.5 border border-[#D9E4EC] dark:border-[#27465F] text-center">
         <div>
-          <p className="text-xs text-navy-500 font-medium uppercase tracking-wider mb-1">Dimensions</p>
-          <p className="text-sm font-semibold text-navy-900">{Math.round(result.width)} × {Math.round(result.height)} px</p>
+          <p className="text-[10px] text-[#5C768D] dark:text-[#ABDAF0] font-semibold uppercase tracking-wider mb-0.5">Dimensions</p>
+          <p className="text-xs font-bold text-[#1B2E40] dark:text-white">{Math.round(result.width)} × {Math.round(result.height)} px</p>
         </div>
         <div>
-          <p className="text-xs text-navy-500 font-medium uppercase tracking-wider mb-1">Space Saved</p>
-          <p className="text-sm font-semibold text-emerald-600">{result.compressionRatio > 0 ? `${result.compressionRatio}%` : 'Optimized'}</p>
+          <p className="text-[10px] text-[#5C768D] dark:text-[#ABDAF0] font-semibold uppercase tracking-wider mb-0.5">Space Saved</p>
+          <p className="text-xs font-bold text-[#1166B3] dark:text-[#7DC0E5]">{result.compressionRatio > 0 ? `${result.compressionRatio}%` : 'Optimized'}</p>
         </div>
         <div>
-          <p className="text-xs text-navy-500 font-medium uppercase tracking-wider mb-1">Output Format</p>
-          <p className="text-sm font-bold text-navy-900">JPG</p>
+          <p className="text-[10px] text-[#5C768D] dark:text-[#ABDAF0] font-semibold uppercase tracking-wider mb-0.5">Output Format</p>
+          <p className="text-xs font-bold text-[#1B2E40] dark:text-white">JPG</p>
         </div>
         <div>
-          <p className="text-xs text-navy-500 font-medium uppercase tracking-wider mb-1">Quality</p>
-          <p className="text-sm font-semibold text-navy-900">{Math.round(result.quality * 100)}%</p>
+          <p className="text-[10px] text-[#5C768D] dark:text-[#ABDAF0] font-semibold uppercase tracking-wider mb-0.5">Quality Factor</p>
+          <p className="text-xs font-bold text-[#1B2E40] dark:text-white">{Math.round(result.quality * 100)}%</p>
         </div>
       </div>
 
       {/* Short & Sweet Download Filename Customizer */}
-      <div className="mb-8 p-5 bg-teal-50/60 rounded-2xl border border-teal-100">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2.5">
-          <label htmlFor="custom-filename" className="text-sm font-bold text-navy-900 flex items-center gap-1.5">
-            <Icon icon="solar:pen-bold-duotone" className="w-4 h-4 text-teal-600" />
+      <div className="mb-6 p-4 bg-[#F5F8FC] dark:bg-[#27465F]/40 rounded-lg border border-[#D9E4EC] dark:border-[#27465F]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+          <label htmlFor="custom-filename" className="text-xs font-bold text-[#1B2E40] dark:text-white flex items-center gap-1.5">
+            <Icon icon="solar:pen-bold" className="w-3.5 h-3.5 text-[#1166B3] dark:text-[#ABDAF0]" />
             Download File Name (Short &amp; Sweet):
           </label>
-          <span className="text-xs text-navy-500">Pick a preset or customize below</span>
+          <span className="text-[11px] text-[#5C768D] dark:text-[#D9E4EC]">Pick a preset or customize</span>
         </div>
 
-        <div className="flex rounded-xl shadow-xs overflow-hidden border border-gray-300 focus-within:border-teal-500 focus-within:ring-2 focus-within:ring-teal-200 bg-white mb-3">
+        <div className="flex rounded-lg overflow-hidden border border-[#D9E4EC] dark:border-[#27465F] focus-within:border-[#1166B3] bg-white dark:bg-[#1B2E40] mb-2.5">
           <input
             id="custom-filename"
             type="text"
             value={fileName}
             onChange={(e) => setFileName(e.target.value.replace(/[^a-zA-Z0-9_-]/g, "-"))}
             placeholder="e.g. citizenship-front"
-            className="flex-1 px-4 py-2.5 text-navy-900 text-sm font-semibold focus:outline-none"
+            className="flex-1 px-3.5 py-2 text-[#142536] dark:text-white text-xs font-semibold focus:outline-none"
           />
-          <span className="inline-flex items-center px-4 bg-gray-100 text-teal-800 text-sm font-bold border-l border-gray-200 select-none">
+          <span className="inline-flex items-center px-3 bg-[#E9F0F6] dark:bg-[#27465F] text-[#1166B3] dark:text-[#ABDAF0] text-xs font-bold border-l border-[#D9E4EC] dark:border-[#27465F] select-none">
             .jpg
           </span>
         </div>
 
         <div className="flex flex-wrap items-center gap-1.5">
-          <span className="text-xs font-semibold text-navy-600 mr-1">Quick Presets:</span>
+          <span className="text-[11px] font-semibold text-[#5C768D] dark:text-[#D9E4EC] mr-1">Presets:</span>
           {PRESET_NAMES.map((preset) => (
             <button
               key={preset.id}
               type="button"
               onClick={() => setFileName(preset.id)}
-              className={`text-xs px-3 py-1 rounded-full font-medium transition-all ${
+              className={`text-[11px] px-2.5 py-1 rounded-md font-medium transition-colors ${
                 cleanCurrentName === preset.id
-                  ? "bg-teal-600 text-white shadow-xs"
-                  : "bg-white text-navy-700 border border-gray-200 hover:border-teal-500 hover:text-teal-700"
+                  ? "bg-[#1166B3] text-white shadow-2xs"
+                  : "bg-white dark:bg-[#1B2E40] text-[#3E5A74] dark:text-[#D9E4EC] border border-[#D9E4EC] dark:border-[#27465F] hover:border-[#1166B3] hover:text-[#1166B3]"
               }`}
             >
               {preset.label}
@@ -193,20 +191,20 @@ export function CompressedPreview({ originalFile, originalPreviewUrl, result, on
       </div>
 
       {/* Action Buttons */}
-      <div className="flex flex-col sm:flex-row gap-4">
+      <div className="flex flex-col sm:flex-row gap-3">
         <button
           onClick={handleDownload}
-          className="flex-1 bg-teal-600 hover:bg-teal-700 active:scale-[0.99] text-white py-4 px-6 rounded-xl font-semibold text-lg transition-all flex items-center justify-center gap-2 shadow-sm"
+          className="flex-1 bg-[#1166B3] hover:bg-[#0e5494] text-white py-3.5 px-6 rounded-lg font-semibold text-sm transition-colors flex items-center justify-center gap-2 shadow-xs min-h-[44px]"
         >
-          <Icon icon="solar:download-minimalistic-bold-duotone" className="w-5 h-5" />
+          <Icon icon="solar:download-minimalistic-bold" className="w-4 h-4 text-white" />
           Download {finalDownloadName}
         </button>
         <button
           onClick={onReset}
-          className="w-full sm:w-auto bg-white hover:bg-gray-50 active:scale-[0.99] text-navy-700 py-4 px-6 rounded-xl font-medium border border-gray-300 transition-all flex items-center justify-center gap-2"
+          className="w-full sm:w-auto bg-white dark:bg-[#1B2E40] hover:bg-[#F5F8FC] dark:hover:bg-[#27465F] text-[#142536] dark:text-[#D9E4EC] py-3.5 px-5 rounded-lg font-medium text-sm border border-[#D9E4EC] dark:border-[#27465F] transition-colors flex items-center justify-center gap-2 min-h-[44px]"
         >
-          <Icon icon="solar:refresh-circle-bold-duotone" className="w-5 h-5" />
-          Compress Another Photo
+          <Icon icon="solar:refresh-circle-bold" className="w-4 h-4" />
+          Compress Another
         </button>
       </div>
 

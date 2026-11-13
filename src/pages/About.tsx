@@ -6,78 +6,86 @@ export default function About() {
   return (
     <>
       <SEO 
-        title="About Us"
-        description="Learn about Astra Technology Horizon and why we created the NP Domain Letter Generator to simplify .NP domain registration in Nepal."
+        title="About Us — Astra Technology Horizon"
+        description="Learn about Astra Technology Horizon (Itahari, Nepal) and why we created the NP Domain Letter Generator to simplify .NP domain registration in Nepal."
         url="/about"
       />
-      <div className="bg-gray-50 dark:bg-gray-900 min-h-screen py-16 px-4 sm:px-6 lg:px-8 transition-colors">
+      <div className="bg-[#F5F8FC] dark:bg-[#142536] min-h-screen py-16 px-4 sm:px-6 lg:px-8 transition-colors">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-navy-900 dark:text-white tracking-tight mb-4">
-            About Us
+        <div className="text-center mb-12">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#E9F0F6] text-[#1166B3] dark:bg-[#27465F] dark:text-[#ABDAF0] border border-[#D9E4EC] dark:border-[#27465F] mb-3">
+            Astra Technology Horizon • Itahari, Nepal
+          </span>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-[#1B2E40] dark:text-white tracking-tight mb-3">
+            About This Utility
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Simplifying the .NP domain registration process for everyone in Nepal.
+          <p className="text-base sm:text-lg text-[#3E5A74] dark:text-[#D9E4EC] max-w-2xl mx-auto">
+            Simplifying the .NP domain registration process for individuals and businesses across Nepal.
           </p>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0F1C] rounded-3xl shadow-sm border border-gray-200 dark:border-gray-800 overflow-hidden mb-12">
-          <div className="p-8 md:p-12">
-            <h2 className="text-2xl font-bold text-navy-900 dark:text-white mb-6">Our Story</h2>
-            <div className="space-y-4 text-lg text-gray-700 dark:text-gray-300">
+        <div className="bg-white dark:bg-[#1B2E40] rounded-xl border border-[#D9E4EC] dark:border-[#27465F] overflow-hidden mb-10">
+          <div className="p-7 sm:p-10">
+            <h2 className="text-xl font-bold text-[#1B2E40] dark:text-white mb-4">Our Purpose</h2>
+            <div className="space-y-3.5 text-sm sm:text-base text-[#3E5A74] dark:text-[#D9E4EC] leading-relaxed">
               <p>
-                Registering a free .com.np domain is an amazing opportunity provided by Mercantile Communications for the people and businesses of Nepal. However, we noticed that many applicants were struggling with the exact formatting requirements for the cover letter and the strict 200KB image size limits.
+                Registering a free <strong className="text-[#1B2E40] dark:text-white">.com.np</strong> or official .NP domain is a tremendous national service provided by Mercantile Communications Pvt. Ltd. However, many applicants experience delays or rejections due to strict 200KB upload limits and manual cover letter verification guidelines.
               </p>
               <p>
-                We went through the process ourselves and experienced the frustration of having our application rejected due to a minor formatting error in the cover letter. 
-              </p>
-              <p>
-                That's why we built the <strong>NP Domain Letter Generator</strong>. We wanted to create a free, completely private tool that helps you generate a perfectly formatted cover letter in seconds, and compress your citizenship or PAN card scans to meet the exact requirements.
+                To eliminate that friction, <strong className="text-[#1B2E40] dark:text-white">Astra Technology Horizon</strong> engineered this free, open client-side utility. It generates properly formatted, signed cover letters and compresses photos/scans to fit under 200KB—instantly, right in your browser.
               </p>
             </div>
           </div>
-          <div className="bg-teal-50 dark:bg-teal-900/20 p-8 md:p-12 border-t border-teal-100 dark:border-teal-900/30">
-            <h2 className="text-2xl font-bold text-navy-900 dark:text-white mb-6">Our Mission</h2>
-            <p className="text-lg text-gray-700 dark:text-gray-300">
-              To empower Nepali students, professionals, and businesses to establish their online presence by removing the technical friction from the .NP domain registration process.
+          <div className="bg-[#E9F0F6] dark:bg-[#27465F]/40 p-6 sm:p-8 border-t border-[#D9E4EC] dark:border-[#27465F]">
+            <h3 className="text-base font-bold text-[#1B2E40] dark:text-white mb-2">Our Mission</h3>
+            <p className="text-sm text-[#3E5A74] dark:text-[#D9E4EC] leading-relaxed">
+              Empower Nepali developers, students, creators, and entrepreneurs to establish their presence on the web with dependable tools that uphold privacy and simplicity.
             </p>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <div className="bg-white dark:bg-[#0A0F1C] p-8 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="bg-teal-100 dark:bg-teal-900/30 p-3 rounded-xl text-teal-600 dark:text-teal-400">
-                <Icon icon="solar:users-group-two-rounded-bold-duotone" className="w-8 h-8" />
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <div className="bg-white dark:bg-[#1B2E40] p-6 sm:p-7 rounded-xl border border-[#D9E4EC] dark:border-[#27465F]">
+            <div className="flex items-center gap-3.5 mb-4">
+              <div className="bg-[#E9F0F6] dark:bg-[#27465F] p-2.5 rounded-lg text-[#1166B3] dark:text-[#ABDAF0]">
+                <Icon icon="solar:buildings-bold" className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-bold text-navy-900 dark:text-white">Who We Are</h3>
+              <h3 className="text-lg font-bold text-[#1B2E40] dark:text-white">Engineered in Itahari</h3>
             </div>
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
-              This tool is developed and maintained by <strong>Astra Technology Horizon</strong>, a technology collective based in Nepal. We specialize in building user-centric web applications and digital tools.
+            <p className="text-sm text-[#3E5A74] dark:text-[#D9E4EC] leading-relaxed mb-4">
+              Built and maintained by <strong>Astra Technology Horizon</strong>, located in <strong>Itahari, Nepal</strong>. We craft reliable digital systems, modern web tools, and thoughtful software experiences.
             </p>
-            <a href="https://astratech.com.np" target="_blank" rel="noopener noreferrer" className="text-teal-600 dark:text-teal-400 font-medium hover:underline flex items-center gap-1">
-              Visit Astra Technology Horizon
-              <Icon icon="solar:arrow-right-up-linear" className="w-4 h-4" />
+            <a 
+              href="https://astratech.com.np" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-[#1166B3] dark:text-[#7DC0E5] font-semibold text-xs sm:text-sm hover:underline inline-flex items-center gap-1"
+            >
+              astratech.com.np
+              <Icon icon="solar:arrow-right-up-linear" className="w-3.5 h-3.5" />
             </a>
           </div>
 
-          <div className="bg-white dark:bg-[#0A0F1C] p-8 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="bg-teal-100 dark:bg-teal-900/30 p-3 rounded-xl text-teal-600 dark:text-teal-400">
-                <Icon icon="solar:shield-check-bold-duotone" className="w-8 h-8" />
+          <div className="bg-white dark:bg-[#1B2E40] p-6 sm:p-7 rounded-xl border border-[#D9E4EC] dark:border-[#27465F]">
+            <div className="flex items-center gap-3.5 mb-4">
+              <div className="bg-[#E9F0F6] dark:bg-[#27465F] p-2.5 rounded-lg text-[#1166B3] dark:text-[#ABDAF0]">
+                <Icon icon="solar:shield-check-bold" className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-bold text-navy-900 dark:text-white">Privacy First</h3>
+              <h3 className="text-lg font-bold text-[#1B2E40] dark:text-white">Zero Server Data Storage</h3>
             </div>
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
-              We respect your privacy. Because you are handling sensitive documents like your Citizenship and company registration, we designed this tool to work entirely in your browser. No data ever leaves your device.
+            <p className="text-sm text-[#3E5A74] dark:text-[#D9E4EC] leading-relaxed mb-4">
+              Citizenship cards and registration documents contain sensitive personal data. Every calculation, PDF/JPG render, and compression happens locally on your device.
             </p>
-            <Link to="/privacy" className="text-teal-600 dark:text-teal-400 font-medium hover:underline flex items-center gap-1">
-              Read our Privacy Policy
-              <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
+            <Link 
+              to="/privacy" 
+              className="text-[#1166B3] dark:text-[#7DC0E5] font-semibold text-xs sm:text-sm hover:underline inline-flex items-center gap-1"
+            >
+              Review Privacy Standards
+              <Icon icon="solar:arrow-right-linear" className="w-3.5 h-3.5" />
             </Link>
           </div>
         </div>
-        </div>
+      </div>
       </div>
     </>
   );

@@ -159,16 +159,16 @@ export default function Generator() {
         url="/generate"
       />
       <ActiveFieldProvider>
-      <div className="bg-gray-50 min-h-screen pb-20 dark:bg-gray-900 transition-colors">
+      <div className="bg-[#F5F8FC] min-h-screen pb-20 dark:bg-[#142536] transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
             {/* Left Column: Form */}
             <div className="w-full lg:w-1/2 flex flex-col gap-6">
-              <div className="bg-teal-50 text-teal-800 p-4 rounded-xl flex items-center gap-3 border border-teal-100 dark:bg-teal-900/20 dark:border-teal-900/50 dark:text-teal-100 transition-colors">
-                <Icon icon="solar:shield-check-bold-duotone" className="w-5 h-5 flex-shrink-0 text-teal-600 dark:text-teal-400" />
-                <p className="text-sm font-medium">
-                  Your information stays in your browser. We don't save your data to any server.
+              <div className="bg-[#E9F0F6] text-[#142536] p-4 rounded-xl flex items-center gap-3 border border-[#D9E4EC] dark:bg-[#27465F]/60 dark:border-[#27465F] dark:text-[#D9E4EC] transition-colors">
+                <Icon icon="solar:shield-check-bold" className="w-5 h-5 flex-shrink-0 text-[#1166B3] dark:text-[#ABDAF0]" />
+                <p className="text-xs sm:text-sm font-medium">
+                  Client-side execution: Your details stay private inside your browser. No data is stored remotely.
                 </p>
               </div>
               

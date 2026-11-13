@@ -38,7 +38,7 @@ export const SelectField = React.forwardRef<HTMLSelectElement, SelectFieldProps>
           className={`w-full px-4 py-2.5 rounded-lg border appearance-none bg-no-repeat ${
             error
               ? "border-red-300 focus:ring-red-500 focus:border-red-500 dark:border-red-500/50"
-              : "border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:border-gray-600 dark:focus:border-teal-500 dark:focus:ring-teal-500/50"
+              : "border-[#D9E4EC] focus:ring-[#1166B3] focus:border-[#1166B3] dark:border-gray-600 dark:focus:border-[#7DC0E5] dark:focus:ring-[#7DC0E5]/50"
           } shadow-sm focus:outline-none focus:ring-2 transition-shadow bg-white dark:bg-gray-800 text-navy-900 dark:text-white`}
           style={{
             backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
